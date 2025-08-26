@@ -2,7 +2,7 @@ name: Update README (WakaTime + GitHub)
 
 on:
   schedule:
-    - cron: "15 */6 * * *"   # každých 6 hodin v :15
+    - cron: "1 */1 * * *"   # každých 1 hodin v :15
   workflow_dispatch:
 
 jobs:
