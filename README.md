@@ -41,9 +41,12 @@
 <!-- WAKATIME-START -->
 **All-time coding:** N/A
 
+<details><summary>📊 Posledních 7 dní</summary>
+
 ```
 No data
 ```
+</details>
 <!-- WAKATIME-END -->
 
 ## 🧠 Jazyky (WakaTime)
@@ -60,20 +63,22 @@ No languages
 
 ## 📦 Top Repos
 <!-- REPOS-START -->
-- [skJson](https://github.com/cooffeeRequired/skJson) ★ 21
-- [SkriptMail](https://github.com/cooffeeRequired/SkriptMail) ★ 4
-- [Jsonic](https://github.com/cooffeeRequired/Jsonic) ★ 1
-- [skGoat](https://github.com/cooffeeRequired/skGoat) ★ 1
-- [cooffeeRequired](https://github.com/cooffeeRequired/cooffeeRequired) ★ 0
+| Repo | Stars | Last commit |
+|------|-------|-------------|
+| [skJson](https://github.com/cooffeeRequired/skJson) | ★ 21 | 2025-08-13 |
+| [SkriptMail](https://github.com/cooffeeRequired/SkriptMail) | ★ 4 | 2025-05-10 |
+| [Jsonic](https://github.com/cooffeeRequired/Jsonic) | ★ 1 | 2025-08-16 |
+| [skGoat](https://github.com/cooffeeRequired/skGoat) | ★ 1 | 2025-05-06 |
+| [cooffeeRequired](https://github.com/cooffeeRequired/cooffeeRequired) | ★ 0 | 2025-08-26 |
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 <!-- COMMITS-START -->
-- Update update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/51d46b7ed79b16fd70bc71142af75500540f1d0a))
-- Create update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/9fa24e89cedef142b612a770ec88366c613b33fd))
-- Create update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/f3a0521069bd82418d57e7491c5077920171ad3a))
-- Update README.md ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/6ae1fb0492a2c9271fbf1e28863c3e5514dbc3ed))
-- Update README.md ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/17b3565eb6b11bbbe9bcaf6b9f368e1316f78e90))
+- 📝 Update update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/ecf8e128e5b125280f7f29fe4b3ce524ade56f4d))
+- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/25c4a6f5983988647960e5f075d9bdf3657cfcde))
+- 📝 Update update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/51d46b7ed79b16fd70bc71142af75500540f1d0a))
+- 📝 Create update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/9fa24e89cedef142b612a770ec88366c613b33fd))
+- 📝 Create update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/f3a0521069bd82418d57e7491c5077920171ad3a))
 <!-- COMMITS-END -->
 ---
 
