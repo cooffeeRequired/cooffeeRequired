@@ -1,6 +1,4 @@
-// update-readme.js — modernizovaná verze s Skill Icons
-// Autor: cooffeeRequired
-
+// update-readme.js — modern design
 const https = require("https");
 const fs = require("fs");
 
@@ -50,6 +48,7 @@ function replaceSection(content, startMarker, endMarker, newContent) {
   );
 }
 
+// ASCII graf (7 dní)
 function createASCIIGraph(dailyData) {
   if (!Array.isArray(dailyData) || dailyData.length === 0) return "No data";
   const graphWidth = 28;
@@ -58,12 +57,15 @@ function createASCIIGraph(dailyData) {
   today.setHours(0, 0, 0, 0);
   const weekAgo = new Date(today);
   weekAgo.setDate(today.getDate() - 6);
+
   const relevant = dailyData.filter((d) => {
     const dt = new Date(d.range.date);
     dt.setHours(0, 0, 0, 0);
     return dt >= weekAgo && dt <= today;
   });
+
   const max = Math.max(...relevant.map((d) => d.grand_total.total_seconds || 0), 1);
+
   return relevant
     .map((item) => {
       const dt = new Date(item.range.date);
@@ -75,6 +77,7 @@ function createASCIIGraph(dailyData) {
     .join("\n");
 }
 
+// Sparkline (30 dní)
 function buildSparklineSVG(values, { width = 500, height = 80, stroke = "#FF61F6" } = {}) {
   if (!values || values.length === 0) values = [0];
   const max = Math.max(...values, 1);
@@ -89,28 +92,48 @@ function buildSparklineSVG(values, { width = 500, height = 80, stroke = "#FF61F6
 </svg>`;
 }
 
-// 🔥 místo vlastních PNG generujeme skill icons
+// Jazyky → Skill icons + procenta
 function formatLanguagesData(languagesData) {
-  const langs = (languagesData?.data || [])
-    .map((lang) => lang.name.toLowerCase().replace(/\s+/g, ""))
-    .filter(Boolean);
+  const langs = (languagesData?.data || []).map((lang) => ({
+    name: lang.name.toLowerCase().replace(/\s+/g, ""),
+    percent: lang.percent.toFixed(1),
+  }));
 
   if (langs.length === 0) return "No languages";
 
-  const url = `https://skillicons.dev/icons?i=${langs.join(",")}&perline=8`;
-  return `<p align="center"><img src="${url}"/></p>`;
+  const url = `https://skillicons.dev/icons?i=${langs.map((l) => l.name).join(",")}&perline=8`;
+
+  const list = langs.map((l) => `**${l.name}**: ${l.percent}%`).join(" · ");
+
+  return `<p align="center"><img src="${url}"/></p>\n<p align="center">${list}</p>`;
 }
 
+// Top repos → tabulka
 async function getTopRepos(limit = 5) {
   const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
   repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-  return repos.slice(0, limit).map((r) => `- [${r.name}](${r.html_url}) ★ ${r.stargazers_count}`);
+
+  const rows = repos.slice(0, limit).map((r) => {
+    const stars = `★ ${r.stargazers_count}`;
+    const lastCommit = new Date(r.pushed_at).toISOString().split("T")[0];
+    return `| [${r.name}](${r.html_url}) | ${stars} | ${lastCommit} |`;
+  });
+
+  return `| Repo | Stars | Last commit |\n|------|-------|-------------|\n${rows.join("\n")}`;
 }
 
+// Commits → timeline styl
 async function getRecentCommits(limit = 5) {
   try {
     const commits = await fetchJSON(`https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`);
-    return commits.map((c) => `- ${c.commit.message} ([view](${c.html_url}))`);
+    return commits.map((c) => {
+      const msg = c.commit.message;
+      let emoji = "📝";
+      if (msg.startsWith("feat")) emoji = "✨";
+      else if (msg.startsWith("fix")) emoji = "🐛";
+      else if (msg.startsWith("chore")) emoji = "🔧";
+      return `- ${emoji} ${msg} ([view](${c.html_url}))`;
+    });
   } catch {
     return ["(no recent commits found in profile repo)"];
   }
@@ -120,6 +143,7 @@ function codeBlock(content) {
   return "```\n" + content + "\n```";
 }
 
+// Main
 (async function main() {
   const readmePath = "README.md";
   if (!fs.existsSync(readmePath)) {
@@ -136,6 +160,7 @@ function codeBlock(content) {
 
   const ascii = createASCIIGraph(timeDaily.data);
   const allTimeLine = `**All-time coding:** ${alltime.data?.grand_total?.text || "N/A"}`;
+
   const daily = (timeDaily.data || []).slice(-30);
   const values = daily.map((d) => d.grand_total.total_seconds || 0);
   const sparkSVG = buildSparklineSVG(values);
@@ -144,10 +169,15 @@ function codeBlock(content) {
   const commits = await getRecentCommits();
 
   let updated = original;
-  updated = replaceSection(updated, SECTIONS.WAKA_MAIN.start, SECTIONS.WAKA_MAIN.end, allTimeLine + "\n\n" + codeBlock(ascii));
+  updated = replaceSection(
+    updated,
+    SECTIONS.WAKA_MAIN.start,
+    SECTIONS.WAKA_MAIN.end,
+    `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(ascii)}\n</details>`
+  );
   updated = replaceSection(updated, SECTIONS.LANGS.start, SECTIONS.LANGS.end, formatLanguagesData(langs));
   updated = replaceSection(updated, SECTIONS.SPARK.start, SECTIONS.SPARK.end, sparkSVG);
-  updated = replaceSection(updated, SECTIONS.REPOS.start, SECTIONS.REPOS.end, repos.join("\n"));
+  updated = replaceSection(updated, SECTIONS.REPOS.start, SECTIONS.REPOS.end, repos);
   updated = replaceSection(updated, SECTIONS.COMMITS.start, SECTIONS.COMMITS.end, commits.join("\n"));
 
   if (updated !== original) {
