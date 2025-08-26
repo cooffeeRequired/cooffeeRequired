@@ -55,7 +55,11 @@ function step(msg) {
   console.log(`${ICONS.step} ${COLORS.bold}${msg}${COLORS.reset}`);
 }
 function ok(msg, t) {
-  console.log(`${ICONS.ok} ${COLORS.g}${msg}${COLORS.reset}${t ? ` ${COLORS.dim}(${fmt(t)})${COLORS.reset}` : ""}`);
+  console.log(
+    `${ICONS.ok} ${COLORS.g}${msg}${COLORS.reset}${
+      t ? ` ${COLORS.dim}(${fmt(t)})${COLORS.reset}` : ""
+    }`
+  );
 }
 function warn(msg) {
   console.log(`${ICONS.warn} ${COLORS.y}${msg}${COLORS.reset}`);
@@ -96,7 +100,9 @@ function fetchJSON(url) {
         res.on("end", () => {
           try {
             if (res.statusCode && res.statusCode >= 400) {
-              return reject(new Error(`HTTP ${res.statusCode} při načítání ${url}`));
+              return reject(
+                new Error(`HTTP ${res.statusCode} při načítání ${url}`)
+              );
             }
             resolve(JSON.parse(data));
           } catch (e) {
@@ -120,7 +126,11 @@ function replaceSection(content, startMarker, endMarker, newContent) {
   const current = content.slice(start + startMarker.length, end);
   const next = `\n${newContent}\n`;
   const changed = current !== next;
-  return { content: before + next + after, changed, reason: changed ? "updated" : "no-diff" };
+  return {
+    content: before + next + after,
+    changed,
+    reason: changed ? "updated" : "no-diff",
+  };
 }
 
 // ---- Visual blocks builders ----
@@ -139,7 +149,10 @@ function createASCIIGraph(dailyData) {
     dt.setHours(0, 0, 0, 0);
     return dt >= weekAgo && dt <= today;
   });
-  const max = Math.max(...relevant.map((d) => d.grand_total.total_seconds || 0), 1);
+  const max = Math.max(
+    ...relevant.map((d) => d.grand_total.total_seconds || 0),
+    1
+  );
 
   return relevant
     .map((item) => {
@@ -154,7 +167,10 @@ function createASCIIGraph(dailyData) {
 }
 
 // Sparkline (30 dní)
-function buildSparklineSVG(values, { width = 500, height = 80, stroke = "#FF61F6" } = {}) {
+function buildSparklineSVG(
+  values,
+  { width = 500, height = 80, stroke = "#FF61F6" } = {}
+) {
   if (!values || values.length === 0) values = [0];
   const max = Math.max(...values, 1);
   const stepX = width / Math.max(values.length - 1, 1);
@@ -164,7 +180,9 @@ function buildSparklineSVG(values, { width = 500, height = 80, stroke = "#FF61F6
     return `${x},${y}`;
   });
   return `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="30-day coding sparkline">
-  <polyline points="${points.join(" ")}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="${points.join(
+    " "
+  )}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>`;
 }
 
@@ -175,14 +193,18 @@ function formatLanguagesData(languagesData) {
     percent: Number.isFinite(lang.percent) ? lang.percent.toFixed(1) : "0.0",
   }));
   if (langs.length === 0) return "No languages";
-  const url = `https://skillicons.dev/icons?i=${langs.map((l) => l.name).join(",")}&perline=8`;
+  const url = `https://skillicons.dev/icons?i=${langs
+    .map((l) => l.name)
+    .join(",")}&perline=8`;
   const list = langs.map((l) => `**${l.name}**: ${l.percent}%`).join(" · ");
   return `<p align="center"><img src="${url}" alt="Language skill icons"/></p>\n<p align="center">${list}</p>`;
 }
 
 // Top repos → tabulka
 async function getTopRepos(limit = 5) {
-  const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
+  const repos = await fetchJSON(
+    `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`
+  );
   repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
   const rows = repos.slice(0, limit).map((r) => {
     const stars = `★ ${r.stargazers_count}`;
@@ -190,7 +212,9 @@ async function getTopRepos(limit = 5) {
     return `| [${r.name}](${r.html_url}) | ${stars} | ${lastCommit} |`;
   });
   return {
-    table: `| Repo | Stars | Last commit |\n|------|-------|-------------|\n${rows.join("\n")}`,
+    table: `| Repo | Stars | Last commit |\n|------|-------|-------------|\n${rows.join(
+      "\n"
+    )}`,
     total: repos.length,
     used: Math.min(limit, repos.length),
   };
@@ -199,7 +223,9 @@ async function getTopRepos(limit = 5) {
 // Commits → timeline styl
 async function getRecentCommits(limit = 5) {
   try {
-    const commits = await fetchJSON(`https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`);
+    const commits = await fetchJSON(
+      `https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`
+    );
     return {
       lines: commits.map((c) => {
         const msg = c.commit.message || "";
@@ -223,7 +249,11 @@ function codeBlock(content) {
 // ---- Main ----
 (async function main() {
   hr();
-  info(`Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? " (dry-run)" : ""}${VERBOSE ? " (verbose)" : ""}`);
+  info(
+    `Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? " (dry-run)" : ""}${
+      VERBOSE ? " (verbose)" : ""
+    }`
+  );
   info(
     `WakaTime URLS: daily=${Boolean(WAKATIME.timeDataUrl)}, alltime=${Boolean(
       WAKATIME.allTimeDataUrl
@@ -241,37 +271,49 @@ function codeBlock(content) {
   const summary = [];
 
   // 2) Načtení dat (paralelně)
-  const [timeDaily, alltime, langs] = await timed("Načítám WakaTime + Langs", async () => {
-    const res = await Promise.all([
-      fetchJSON(WAKATIME.timeDataUrl),
-      fetchJSON(WAKATIME.allTimeDataUrl),
-      fetchJSON(WAKATIME.languagesDataUrl),
-    ]);
-    const dailyCount = res?.[0]?.data?.length || 0;
-    const langsCount = res?.[2]?.data?.length || 0;
-    info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
-    return res;
-  });
+  const [timeDaily, alltime, langs] = await timed(
+    "Načítám WakaTime + Langs",
+    async () => {
+      console.log(WAKATIME);
+      const res = await Promise.all([
+        fetchJSON(WAKATIME.timeDataUrl),
+        fetchJSON(WAKATIME.allTimeDataUrl),
+        fetchJSON(WAKATIME.languagesDataUrl),
+      ]);
+      const dailyCount = res?.[0]?.data?.length || 0;
+      const langsCount = res?.[2]?.data?.length || 0;
+      info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
+      return res;
+    }
+  );
 
   // 3) Výpočty grafů
-  const { ascii, sparkSVG, allTimeLine } = await timed("Generuji grafy a summary", async () => {
-    const ascii = createASCIIGraph(timeDaily?.data || []);
-    const daily = (timeDaily?.data || []).slice(-30);
-    const values = daily.map((d) => d.grand_total?.total_seconds || 0);
-    const sparkSVG = buildSparklineSVG(values);
-    const allTimeLine = `**All-time coding:** ${alltime?.data?.grand_total?.text || "N/A"}`;
-    verbose(`Sparkline points: ${values.length}`);
-    return { ascii, sparkSVG, allTimeLine };
-  });
+  const { ascii, sparkSVG, allTimeLine } = await timed(
+    "Generuji grafy a summary",
+    async () => {
+      const ascii = createASCIIGraph(timeDaily?.data || []);
+      const daily = (timeDaily?.data || []).slice(-30);
+      const values = daily.map((d) => d.grand_total?.total_seconds || 0);
+      const sparkSVG = buildSparklineSVG(values);
+      const allTimeLine = `**All-time coding:** ${
+        alltime?.data?.grand_total?.text || "N/A"
+      }`;
+      verbose(`Sparkline points: ${values.length}`);
+      return { ascii, sparkSVG, allTimeLine };
+    }
+  );
 
   // 4) Repozitáře a commity
-  const { table: reposTable, total: reposTotal, used: reposUsed } = await timed("Sbírám top repozitáře", async () =>
-    getTopRepos(5)
-  );
+  const {
+    table: reposTable,
+    total: reposTotal,
+    used: reposUsed,
+  } = await timed("Sbírám top repozitáře", async () => getTopRepos(5));
   info(`Repozitáře: použito ${reposUsed} z ${reposTotal}`);
 
-  const { lines: commitsLines, count: commitsCount } = await timed("Sbírám poslední commity", async () =>
-    getRecentCommits(5)
+  const { lines: commitsLines, count: commitsCount } = await timed(
+    "Sbírám poslední commity",
+    async () => getRecentCommits(5)
   );
   info(`Commity: ${commitsCount}`);
 
@@ -290,14 +332,18 @@ function codeBlock(content) {
       reason,
       bytes: newContent.length,
     });
-    const label = changed ? `Sekce ${sectionKey} aktualizována` : `Sekce ${sectionKey} beze změny`;
+    const label = changed
+      ? `Sekce ${sectionKey} aktualizována`
+      : `Sekce ${sectionKey} beze změny`;
     (changed ? ok : info)(`${label} (${reason})`);
   };
 
   await timed("Aktualizuji sekce README", async () => {
     replaceAndTrack(
       "WAKA_MAIN",
-      `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(ascii)}\n</details>`
+      `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(
+        ascii
+      )}\n</details>`
     );
     replaceAndTrack("LANGS", formatLanguagesData(langs));
     replaceAndTrack("SPARK", sparkSVG);
@@ -306,18 +352,23 @@ function codeBlock(content) {
   });
 
   // 6) Zápis nebo dry-run
-  await timed(DRY_RUN ? "Dry-run: porovnání obsahu" : "Zapisuje se README", async () => {
-    if (updated !== original) {
-      if (DRY_RUN) {
-        info("Změny detekovány, ale kvůli --dry-run se nezapisují.");
+  await timed(
+    DRY_RUN ? "Dry-run: porovnání obsahu" : "Zapisuje se README",
+    async () => {
+      if (updated !== original) {
+        if (DRY_RUN) {
+          info("Změny detekovány, ale kvůli --dry-run se nezapisují.");
+        } else {
+          fs.writeFileSync(readmePath, updated);
+          console.log(
+            `${ICONS.write} ${COLORS.m}README aktualizován.${COLORS.reset}`
+          );
+        }
       } else {
-        fs.writeFileSync(readmePath, updated);
-        console.log(`${ICONS.write} ${COLORS.m}README aktualizován.${COLORS.reset}`);
+        info("Žádné změny k zápisu.");
       }
-    } else {
-      info("Žádné změny k zápisu.");
     }
-  });
+  );
 
   // 7) Souhrn
   hr();
@@ -325,7 +376,9 @@ function codeBlock(content) {
   summary.forEach((s) => {
     const mark = s.changed ? ICONS.ok : ICONS.dot;
     console.log(
-      `${mark} ${s.section.padEnd(10)} — ${s.changed ? COLORS.g + "updated" : COLORS.c + "no-diff"}${COLORS.reset} (${s.reason}), ~${s.bytes} B`
+      `${mark} ${s.section.padEnd(10)} — ${
+        s.changed ? COLORS.g + "updated" : COLORS.c + "no-diff"
+      }${COLORS.reset} (${s.reason}), ~${s.bytes} B`
     );
   });
   hr();
@@ -335,7 +388,11 @@ function codeBlock(content) {
     .filter(([, v]) => !v)
     .map(([k]) => k);
   if (missing.length) {
-    warn(`Chybí env proměnné: ${missing.join(", ")} — příslušné sekce mohou být prázdné.`);
+    warn(
+      `Chybí env proměnné: ${missing.join(
+        ", "
+      )} — příslušné sekce mohou být prázdné.`
+    );
   }
 
   ok("Hotovo");
