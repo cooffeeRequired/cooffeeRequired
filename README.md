@@ -44,26 +44,26 @@
 <details><summary>📊 Posledních 7 dní</summary>
 
 ```
-Stř │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Čtv │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Pát │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Sob │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Ned │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Pon │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
-Úte │ 4 hrs 23 mins ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+Úte │ 5 hrs 59 mins ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
 ```
 </details>
 <!-- WAKATIME-END -->
 
 ## 🧠 Jazyky (WakaTime)
 <!-- LANGS-START -->
-No languages
+<p align="center"><img src="https://skillicons.dev/icons?i=php,javascript,sql,html,other,bash,gitconfig,json,markdown&perline=8" alt="Language skill icons"/></p>
+<p align="center">**php**: 48.1% · **javascript**: 37.4% · **sql**: 6.4% · **html**: 3.3% · **other**: 1.6% · **bash**: 1.1% · **gitconfig**: 1.0% · **json**: 1.0% · **markdown**: 0.2%</p>
 <!-- LANGS-END -->
 
 ## 📈 Sparkline (30 dní, WakaTime total seconds)
 <!-- SPARK-START -->
 <svg width="500" height="80" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="30-day coding sparkline">
-  <polyline points="0.00,75.00 83.33,75.00 166.67,75.00 250.00,75.00 333.33,75.00 416.67,75.00 500.00,5.00" fill="none" stroke="#FF61F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <polyline points="0.00,75.00 83.33,75.00 166.67,75.00 250.00,75.00 333.33,75.00 416.67,5.00 500.00,56.60" fill="none" stroke="#FF61F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 <!-- SPARK-END -->
 
@@ -80,11 +80,11 @@ No languages
 
 ## 📝 Recent Commits (profile repo)
 <!-- COMMITS-START -->
+- 📝 Update update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/3125cfb07fdee518dbad74344e6d1fc01d8d3d63))
+- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/cb5464d7358eb8fe6b0dbf9014cb393a4fb89130))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/5910ebb7ce91ca3c98e235e2349c4268e504a046))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/f1b08fd2894138c1467b9eebe6c60362fc05f3b3))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/02c9ae9d6ef1f53d9d2f3ade3d039118cb496305))
-- 📝 Update update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/bc8d73fc8321ac7b8a80484e154487e8cc2cde6d))
-- 📝 update ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/c4257d8747bcfd8eb49b2b738141eac151df3e30))
 <!-- COMMITS-END -->
 ---
 
