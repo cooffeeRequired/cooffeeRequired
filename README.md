@@ -37,15 +37,27 @@
 </p>
 
 
-## ✨ Fun Stuff
-## 📦 Top repos
-<!--START_SECTION:repos-->
-<!--END_SECTION:repos-->
+## ⏱️ WakaTime (posledních 7 dní)
+<!-- WAKATIME-START -->
+<!-- WAKATIME-END -->
 
-## 📝 Last commits
-<!--START_SECTION:commits-->
-<!--END_SECTION:commits-->
+## 🧠 Jazyky (WakaTime)
+<!-- LANGS-START -->
+<!-- LANGS-END -->
+
+## 📈 Sparkline (30 dní, WakaTime total seconds)
+<!-- SPARK-START -->
+<!-- SPARK-END -->
+
+## 📦 Top Repos
+<!-- REPOS-START -->
+<!-- REPOS-END -->
+
+## 📝 Recent Commits (profile repo)
+<!-- COMMITS-START -->
+<!-- COMMITS-END -->
 ---
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer"/>
+
 
