@@ -39,22 +39,41 @@
 
 ## ⏱️ WakaTime (posledních 7 dní)
 <!-- WAKATIME-START -->
+**All-time coding:** N/A
+
+```
+No data
+```
 <!-- WAKATIME-END -->
 
 ## 🧠 Jazyky (WakaTime)
 <!-- LANGS-START -->
+No languages
 <!-- LANGS-END -->
 
 ## 📈 Sparkline (30 dní, WakaTime total seconds)
 <!-- SPARK-START -->
+<svg width="500" height="80" xmlns="http://www.w3.org/2000/svg">
+  <polyline points="0.00,75.00" fill="none" stroke="#FF61F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
 <!-- SPARK-END -->
 
 ## 📦 Top Repos
 <!-- REPOS-START -->
+- [skJson](https://github.com/cooffeeRequired/skJson) ★ 21
+- [SkriptMail](https://github.com/cooffeeRequired/SkriptMail) ★ 4
+- [Jsonic](https://github.com/cooffeeRequired/Jsonic) ★ 1
+- [skGoat](https://github.com/cooffeeRequired/skGoat) ★ 1
+- [cooffeeRequired](https://github.com/cooffeeRequired/cooffeeRequired) ★ 0
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 <!-- COMMITS-START -->
+- Update update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/51d46b7ed79b16fd70bc71142af75500540f1d0a))
+- Create update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/9fa24e89cedef142b612a770ec88366c613b33fd))
+- Create update-readme.js ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/f3a0521069bd82418d57e7491c5077920171ad3a))
+- Update README.md ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/6ae1fb0492a2c9271fbf1e28863c3e5514dbc3ed))
+- Update README.md ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/17b3565eb6b11bbbe9bcaf6b9f368e1316f78e90))
 <!-- COMMITS-END -->
 ---
 
