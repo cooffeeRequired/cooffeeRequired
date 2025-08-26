@@ -1,0 +1,29 @@
+name: Update README (WakaTime + GitHub)
+
+on:
+  schedule:
+    - cron: "15 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: node src/update-readme.js
+        env:
+          WAKA_TIME_DAILY_URL: ${{ secrets.WAKA_TIME_DAILY_URL }}
+          WAKA_TIME_ALLTIME_URL: ${{ secrets.WAKA_TIME_ALLTIME_URL }}
+          WAKA_TIME_LANGS_URL: ${{ secrets.WAKA_TIME_LANGS_URL }}
+          LANG_ICON_BASE: ${{ vars.LANG_ICON_BASE }}
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: auto-update README (WakaTime + GitHub)" || echo "no changes"
+          git push
