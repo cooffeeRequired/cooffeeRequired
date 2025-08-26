@@ -15,11 +15,6 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - name: Echo Waka env (masked)
-        run: |
-          echo "DAILY set? ${{ secrets.WAKA_TIME_DAILY_URL != '' }}"
-          echo "ALLTIME set? ${{ secrets.WAKA_TIME_ALLTIME_URL != '' }}"
-          echo "LANGS set? ${{ secrets.WAKA_TIME_LANGS_URL != '' }}"
         env:
           WAKA_TIME_DAILY_URL: ${{ secrets.WAKA_TIME_DAILY_URL }}
           WAKA_TIME_ALLTIME_URL: ${{ secrets.WAKA_TIME_ALLTIME_URL }}
