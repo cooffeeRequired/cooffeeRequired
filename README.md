@@ -38,14 +38,14 @@
 
 
 ## ✨ Fun Stuff
-<p align="center">
-  <img src="https://readme-jokes.vercel.app/api?theme=radical" alt="Jokes Card"/>
-</p>
+## 📦 Top repos
+<!--START_SECTION:repos-->
+<!--END_SECTION:repos-->
 
-<p align="center">
-  <img src="https://quotes-github-readme.vercel.app/api?type=horizontal&theme=radical"/>
-</p>
-
+## 📝 Last commits
+<!--START_SECTION:commits-->
+<!--END_SECTION:commits-->
 ---
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=120&section=footer"/>
+
