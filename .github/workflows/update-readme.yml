@@ -15,7 +15,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: node src/update-readme.js
+      - run: node src/update-readme.js --verbose
         env:
           WAKA_TIME_DAILY_URL: ${{ secrets.WAKA_TIME_DAILY_URL }}
           WAKA_TIME_ALLTIME_URL: ${{ secrets.WAKA_TIME_ALLTIME_URL }}
