@@ -378,7 +378,7 @@ function formatLanguagesData(languagesData) {
             const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
 
             languageItems.push(
-                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="25" /> <span style="font-size: 12px;">${l.percent.toFixed(1)}%</span>`
+                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="25" /> <span style="font-size: 8px;">${l.percent.toFixed(1)}%</span>`
             );
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
