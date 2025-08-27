@@ -569,6 +569,7 @@ function fetchWakaTimeAPI(endpoint) {
     return fetchJSON(url, {
         headers: {
             Authorization: `Bearer ${WAKATIME.apiKey}`,
+            'User-Agent': 'cooffeeRequired-readme-updater/1.0',
         },
     });
 }
