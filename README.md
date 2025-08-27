@@ -51,7 +51,7 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## Languages
 
 <!-- LANGS-START -->
-<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="32" /> `48.1%` &nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="32" /> `37.4%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="32" /> `6.4%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="32" /> `3.3%` &nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="32" /> `1.6%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="32" /> `1.1%` &nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="32" /> `1.0%` &nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="32" /> `1.0%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="32" /> `0.2%`</p>
+<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="25" /> `48.1%` &nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="25" /> `37.4%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="25" /> `6.4%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="25" /> `3.3%` &nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="25" /> `1.6%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="25" /> `1.1%` &nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="25" /> `1.0%` &nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="25" /> `1.0%` &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="25" /> `0.2%`</p>
 <!-- LANGS-END -->
 
 <!-- SPARK-START -->
@@ -96,6 +96,10 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**📝 commit** (27. 08. 25 03:02)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ae71ac028b57203a287cbf8d581330bea537ba36)
+
 **📝 commit** (27. 08. 25 03:01)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/182810a6d739b155535bec395218be65d04285fc)
@@ -111,10 +115,6 @@ by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/coof
 **📝 commit** (27. 08. 25 02:59)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/9542372958eee2fd68492616126fd751ce7a894f)
-
-**📝 commit** (27. 08. 25 02:58)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/092a885c3ded384a6a04bee2d4e3a72a58846124)
 
 
 <!-- COMMITS-END -->
