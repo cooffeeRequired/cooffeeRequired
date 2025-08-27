@@ -1,402 +1,623 @@
 // update-readme.js — modern design + verbose logging/progress
 /* eslint-disable no-console */
-const https = require("https");
-const fs = require("fs");
-const { performance } = require("perf_hooks");
+const https = require('https');
+const fs = require('fs');
+const { performance } = require('perf_hooks');
 
 // ---- CLI flags ----
 const ARGS = process.argv.slice(2);
-const DRY_RUN = ARGS.includes("--dry-run");
-const VERBOSE = ARGS.includes("--verbose");
-const NO_ANSI = ARGS.includes("--no-ansi");
+const DRY_RUN = ARGS.includes('--dry-run');
+const VERBOSE = ARGS.includes('--verbose');
+const NO_ANSI = ARGS.includes('--no-ansi');
 
 // ---- Tuning ----
-const USERNAME = process.env.GITHUB_REPOSITORY_OWNER || "cooffeeRequired";
+const USERNAME = process.env.GITHUB_REPOSITORY_OWNER || 'cooffeeRequired';
 const WAKATIME = {
-  timeDataUrl: process.env.WAKA_TIME_DAILY_URL,
-  allTimeDataUrl: process.env.WAKA_TIME_ALLTIME_URL,
-  languagesDataUrl: process.env.WAKA_TIME_LANGS_URL,
+    timeDataUrl: process.env.WAKA_TIME_DAILY_URL,
+    allTimeDataUrl: process.env.WAKA_TIME_ALLTIME_URL,
+    languagesDataUrl: process.env.WAKA_TIME_LANGS_URL,
 };
 
 const SECTIONS = {
-  WAKA_MAIN: { start: "<!-- WAKATIME-START -->", end: "<!-- WAKATIME-END -->" },
-  LANGS: { start: "<!-- LANGS-START -->", end: "<!-- LANGS-END -->" },
-  SPARK: { start: "<!-- SPARK-START -->", end: "<!-- SPARK-END -->" },
-  REPOS: { start: "<!-- REPOS-START -->", end: "<!-- REPOS-END -->" },
-  COMMITS: { start: "<!-- COMMITS-START -->", end: "<!-- COMMITS-END -->" },
+    WAKA_MAIN: { start: '<!-- WAKATIME-START -->', end: '<!-- WAKATIME-END -->' },
+    LANGS: { start: '<!-- LANGS-START -->', end: '<!-- LANGS-END -->' },
+    SPARK: { start: '<!-- SPARK-START -->', end: '<!-- SPARK-END -->' },
+    REPOS: { start: '<!-- REPOS-START -->', end: '<!-- REPOS-END -->' },
+    COMMITS: { start: '<!-- COMMITS-START -->', end: '<!-- COMMITS-END -->' },
 };
 
 // ---- Simple logger with ANSI/emoji ----
 const COLORS = NO_ANSI
-  ? { r: "", g: "", y: "", b: "", m: "", c: "", dim: "", bold: "", reset: "" }
-  : {
-      r: "\x1b[31m",
-      g: "\x1b[32m",
-      y: "\x1b[33m",
-      b: "\x1b[34m",
-      m: "\x1b[35m",
-      c: "\x1b[36m",
-      dim: "\x1b[2m",
-      bold: "\x1b[1m",
-      reset: "\x1b[0m",
-    };
+    ? { r: '', g: '', y: '', b: '', m: '', c: '', dim: '', bold: '', reset: '' }
+    : {
+          r: '\x1b[31m',
+          g: '\x1b[32m',
+          y: '\x1b[33m',
+          b: '\x1b[34m',
+          m: '\x1b[35m',
+          c: '\x1b[36m',
+          dim: '\x1b[2m',
+          bold: '\x1b[1m',
+          reset: '\x1b[0m',
+      };
 
-const ICONS = NO_ANSI
-  ? { step: "[*]", ok: "[OK]", warn: "[!]", err: "[x]", dot: "-", write: "[W]" }
-  : { step: "⏳", ok: "✅", warn: "⚠️", err: "❌", dot: "•", write: "📝" };
+const ICONS = NO_ANSI ? { step: '[*]', ok: '[OK]', warn: '[!]', err: '[x]', dot: '-', write: '[W]' } : { step: '⏳', ok: '✅', warn: '⚠️', err: '❌', dot: '•', write: '📝' };
 
 function hr() {
-  console.log(`${COLORS.dim}${"─".repeat(60)}${COLORS.reset}`);
+    console.log(`${COLORS.dim}${'─'.repeat(60)}${COLORS.reset}`);
 }
 function fmt(ms) {
-  return `${ms.toFixed(0)}ms`;
+    return `${ms.toFixed(0)}ms`;
 }
 function step(msg) {
-  console.log(`${ICONS.step} ${COLORS.bold}${msg}${COLORS.reset}`);
+    console.log(`${ICONS.step} ${COLORS.bold}${msg}${COLORS.reset}`);
 }
 function ok(msg, t) {
-  console.log(
-    `${ICONS.ok} ${COLORS.g}${msg}${COLORS.reset}${
-      t ? ` ${COLORS.dim}(${fmt(t)})${COLORS.reset}` : ""
-    }`
-  );
+    console.log(`${ICONS.ok} ${COLORS.g}${msg}${COLORS.reset}${t ? ` ${COLORS.dim}(${fmt(t)})${COLORS.reset}` : ''}`);
 }
 function warn(msg) {
-  console.log(`${ICONS.warn} ${COLORS.y}${msg}${COLORS.reset}`);
+    console.log(`${ICONS.warn} ${COLORS.y}${msg}${COLORS.reset}`);
 }
 function err(msg) {
-  console.log(`${ICONS.err} ${COLORS.r}${msg}${COLORS.reset}`);
+    console.log(`${ICONS.err} ${COLORS.r}${msg}${COLORS.reset}`);
 }
 function info(msg) {
-  console.log(`${ICONS.dot} ${COLORS.c}${msg}${COLORS.reset}`);
+    console.log(`${ICONS.dot} ${COLORS.c}${msg}${COLORS.reset}`);
 }
 function verbose(msg) {
-  if (VERBOSE) console.log(`${COLORS.dim}${msg}${COLORS.reset}`);
+    if (VERBOSE) console.log(`${COLORS.dim}${msg}${COLORS.reset}`);
 }
 
 // ---- Utils: timed async wrapper ----
 async function timed(label, fn) {
-  step(label);
-  const t0 = performance.now();
-  try {
-    const res = await fn();
-    ok(label.replace(/^\w+:\s*/, "") || "OK", performance.now() - t0);
-    return res;
-  } catch (e) {
-    err(`${label} — ${e.message}`);
-    throw e;
-  }
+    step(label);
+    const t0 = performance.now();
+    try {
+        const res = await fn();
+        ok(label.replace(/^\w+:\s*/, '') || 'OK', performance.now() - t0);
+        return res;
+    } catch (e) {
+        err(`${label} — ${e.message}`);
+        throw e;
+    }
 }
 
 // ---- Network helpers ----
 function fetchJSON(url) {
-  return new Promise((resolve, reject) => {
-    if (!url) return reject(new Error("URL není definováno (missing env?)"));
-    verbose(`GET ${url}`);
-    https
-      .get(url, { headers: { "User-Agent": "readme-updater" } }, (res) => {
-        let data = "";
-        res.on("data", (chunk) => (data += chunk));
-        res.on("end", () => {
-          try {
-            if (res.statusCode && res.statusCode >= 400) {
-              return reject(
-                new Error(`HTTP ${res.statusCode} při načítání ${url}`)
-              );
-            }
-            resolve(JSON.parse(data));
-          } catch (e) {
-            reject(new Error(`Chyba při parsování JSON: ${e.message}`));
-          }
-        });
-      })
-      .on("error", (e) => reject(e));
-  });
+    return new Promise((resolve, reject) => {
+        if (!url) return reject(new Error('URL není definováno (missing env?)'));
+        verbose(`GET ${url}`);
+        https
+            .get(url, { headers: { 'User-Agent': 'readme-updater' } }, res => {
+                let data = '';
+                res.on('data', chunk => (data += chunk));
+                res.on('end', () => {
+                    try {
+                        if (res.statusCode && res.statusCode >= 400) {
+                            return reject(new Error(`HTTP ${res.statusCode} při načítání ${url}`));
+                        }
+                        resolve(JSON.parse(data));
+                    } catch (e) {
+                        reject(new Error(`Chyba při parsování JSON: ${e.message}`));
+                    }
+                });
+            })
+            .on('error', e => reject(e));
+    });
 }
 
 // ---- README section replacement (with change tracking) ----
 function replaceSection(content, startMarker, endMarker, newContent) {
-  const start = content.indexOf(startMarker);
-  const end = content.indexOf(endMarker);
-  if (start === -1 || end === -1 || end < start) {
-    return { content, changed: false, reason: "markers-not-found" };
-  }
-  const before = content.slice(0, start + startMarker.length);
-  const after = content.slice(end);
-  const current = content.slice(start + startMarker.length, end);
-  const next = `\n${newContent}\n`;
-  const changed = current !== next;
-  return {
-    content: before + next + after,
-    changed,
-    reason: changed ? "updated" : "no-diff",
-  };
+    const start = content.indexOf(startMarker);
+    const end = content.indexOf(endMarker);
+    if (start === -1 || end === -1 || end < start) {
+        return { content, changed: false, reason: 'markers-not-found' };
+    }
+    const before = content.slice(0, start + startMarker.length);
+    const after = content.slice(end);
+    const current = content.slice(start + startMarker.length, end);
+    const next = `\n${newContent}\n`;
+    const changed = current !== next;
+    return { content: before + next + after, changed, reason: changed ? 'updated' : 'no-diff' };
 }
 
 // ---- Visual blocks builders ----
-// ASCII graf (7 dní)
+// Barevný ASCII graf (7 dní) — 🟩 plný, 🟨 částečný, ⬜ prázdný
 function createASCIIGraph(dailyData) {
-  if (!Array.isArray(dailyData) || dailyData.length === 0) return "No data";
-  const graphWidth = 28;
-  const days = ["Ned", "Pon", "Úte", "Stř", "Čtv", "Pát", "Sob"];
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-  const weekAgo = new Date(today);
-  weekAgo.setDate(today.getDate() - 6);
+    if (!Array.isArray(dailyData) || dailyData.length === 0) return 'No data';
 
-  const relevant = dailyData.filter((d) => {
-    const dt = new Date(d.range.date);
-    dt.setHours(0, 0, 0, 0);
-    return dt >= weekAgo && dt <= today;
-  });
-  const max = Math.max(
-    ...relevant.map((d) => d.grand_total.total_seconds || 0),
-    1
-  );
+    const graphWidth = 25;
+    const days = ['Ned', 'Pon', 'Úte', 'Stř', 'Čtv', 'Pát', 'Sob'];
 
-  return relevant
-    .map((item) => {
-      const dt = new Date(item.range.date);
-      const seconds = item.grand_total.total_seconds || 0;
-      const len = Math.round((seconds / max) * graphWidth);
-      const bar = "▓".repeat(len) + "░".repeat(graphWidth - len);
-      const label = (item.grand_total.text || "0s").padEnd(10);
-      return `${days[dt.getDay()]} │ ${label} ${bar}`;
-    })
-    .join("\n");
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const weekAgo = new Date(today);
+    weekAgo.setDate(today.getDate() - 6);
+
+    const relevant = dailyData
+        .filter(d => {
+            const dt = new Date(d.range.date);
+            dt.setHours(0, 0, 0, 0);
+            return dt >= weekAgo && dt <= today;
+        })
+        .sort((a, b) => new Date(a.range.date) - new Date(b.range.date));
+
+    const maxSeconds = Math.max(...relevant.map(d => d.grand_total.total_seconds || 0), 1);
+
+    const graph = [];
+    for (let i = 0; i < 7; i++) {
+        const currentDate = new Date(weekAgo);
+        currentDate.setDate(weekAgo.getDate() + i);
+
+        const item = relevant.find(d => {
+            const dt = new Date(d.range.date);
+            return dt.toDateString() === currentDate.toDateString();
+        });
+
+        const seconds = item ? item.grand_total.total_seconds : 0;
+        const timeText = item ? item.grand_total.text || '0 secs' : '0 secs';
+
+        const barLength = (seconds / maxSeconds) * graphWidth;
+        const fullBlocks = Math.floor(barLength);
+        const hasPartial = barLength > fullBlocks ? 1 : 0;
+
+        const bar = '🟩'.repeat(fullBlocks) + (hasPartial ? '🟨' : '') + '⬜'.repeat(Math.max(graphWidth - fullBlocks - hasPartial, 0));
+
+        const dayText = days[currentDate.getDay()].padEnd(3);
+        graph.push(`${dayText} │ ${timeText.padEnd(12)} ${bar}`);
+    }
+
+    return graph.join('\n');
 }
 
-// Sparkline (30 dní)
-function buildSparklineSVG(
-  values,
-  { width = 500, height = 80, stroke = "#FF61F6" } = {}
-) {
-  if (!values || values.length === 0) values = [0];
-  const max = Math.max(...values, 1);
-  const stepX = width / Math.max(values.length - 1, 1);
-  const points = values.map((v, i) => {
-    const x = (i * stepX).toFixed(2);
-    const y = (height - (v / max) * (height - 10) - 5).toFixed(2);
-    return `${x},${y}`;
-  });
-  return `<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="30-day coding sparkline">
-  <polyline points="${points.join(
-    " "
-  )}" fill="none" stroke="${stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>`;
+// ---- Kompletní mapping WakaTime názvů na skillicons.dev ----
+const WA2SKILL = new Map([
+    // Základní jazyky
+    ['javascript', 'js'],
+    ['typescript', 'ts'],
+    ['python', 'py'],
+    ['java', 'java'],
+    ['c', 'c'],
+    ['cpp', 'cpp'],
+    ['csharp', 'cs'],
+    ['go', 'go'],
+    ['rust', 'rust'],
+    ['kotlin', 'kotlin'],
+    ['swift', 'swift'],
+    ['dart', 'dart'],
+    ['r', 'r'],
+    ['scala', 'scala'],
+    ['clojure', 'clojure'],
+    ['haskell', 'haskell'],
+    ['elixir', 'elixir'],
+    ['erlang', 'erlang'],
+    ['lua', 'lua'],
+    ['perl', 'perl'],
+    ['php', 'php'],
+    ['ruby', 'ruby'],
+    ['crystal', 'crystal'],
+    ['zig', 'zig'],
+    ['v', 'v'],
+    ['nim', 'nim'],
+    ['ocaml', 'ocaml'],
+    ['fsharp', 'fs'],
+    ['julia', 'julia'],
+
+    // Web technologie
+    ['html', 'html'],
+    ['css', 'css'],
+    ['scss', 'sass'],
+    ['sass', 'sass'],
+    ['less', 'less'],
+    ['stylus', 'stylus'],
+    ['jsx', 'react'],
+    ['tsx', 'react'],
+    ['vue', 'vue'],
+    ['svelte', 'svelte'],
+    ['solidjs', 'solidjs'],
+    ['angular', 'angular'],
+    ['ember', 'ember'],
+    ['lit', 'lit'],
+    ['htmx', 'htmx'],
+
+    // Databáze
+    ['sql', 'mysql'],
+    ['mysql', 'mysql'],
+    ['postgresql', 'postgres'],
+    ['sqlite', 'sqlite'],
+    ['mongodb', 'mongodb'],
+    ['redis', 'redis'],
+    ['cassandra', 'cassandra'],
+    ['dynamodb', 'dynamodb'],
+
+    // DevOps a nástroje
+    ['docker', 'docker'],
+    ['dockerfile', 'docker'],
+    ['kubernetes', 'kubernetes'],
+    ['terraform', 'terraform'],
+    ['ansible', 'ansible'],
+    ['jenkins', 'jenkins'],
+    ['git', 'git'],
+    ['github', 'github'],
+    ['gitlab', 'gitlab'],
+    ['bitbucket', 'bitbucket'],
+    ['githubactions', 'githubactions'],
+
+    // Frameworky a knihovny
+    ['react', 'react'],
+    ['nextjs', 'nextjs'],
+    ['nuxtjs', 'nuxtjs'],
+    ['gatsby', 'gatsby'],
+    ['express', 'express'],
+    ['nestjs', 'nestjs'],
+    ['fastapi', 'fastapi'],
+    ['django', 'django'],
+    ['flask', 'flask'],
+    ['spring', 'spring'],
+    ['laravel', 'laravel'],
+    ['symfony', 'symfony'],
+    ['rails', 'rails'],
+    ['dotnet', 'dotnet'],
+    ['aspnet', 'dotnet'],
+
+    // Cloud a platformy
+    ['aws', 'aws'],
+    ['azure', 'azure'],
+    ['gcp', 'gcp'],
+    ['firebase', 'firebase'],
+    ['vercel', 'vercel'],
+    ['netlify', 'netlify'],
+    ['heroku', 'heroku'],
+    ['cloudflare', 'cloudflare'],
+    ['supabase', 'supabase'],
+
+    // Nástroje a build systémy
+    ['nodejs', 'nodejs'],
+    ['npm', 'npm'],
+    ['yarn', 'yarn'],
+    ['pnpm', 'pnpm'],
+    ['webpack', 'webpack'],
+    ['vite', 'vite'],
+    ['rollupjs', 'rollupjs'],
+    ['esbuild', 'esbuild'],
+    ['swc', 'swc'],
+    ['babel', 'babel'],
+    ['typescript', 'ts'],
+    ['jest', 'jest'],
+    ['vitest', 'vitest'],
+    ['cypress', 'cypress'],
+    ['selenium', 'selenium'],
+    ['playwright', 'playwright'],
+
+    // IDE a editory
+    ['vscode', 'vscode'],
+    ['vim', 'vim'],
+    ['neovim', 'neovim'],
+    ['emacs', 'emacs'],
+    ['intellij', 'idea'],
+    ['pycharm', 'pycharm'],
+    ['clion', 'clion'],
+    ['webstorm', 'webstorm'],
+    ['sublime', 'sublime'],
+    ['atom', 'atom'],
+
+    // Další
+    ['markdown', 'md'],
+    ['json', 'json'],
+    ['xml', 'xml'],
+    ['yaml', 'yaml'],
+    ['toml', 'toml'],
+    ['ini', 'ini'],
+    ['shell', 'bash'],
+    ['bash', 'bash'],
+    ['powershell', 'powershell'],
+    ['gitconfig', 'git'],
+    ['git config', 'git'],
+    ['gitignore', 'git'],
+    ['dockerignore', 'docker'],
+    ['env', 'env'],
+    ['config', 'config'],
+    ['lock', 'lock'],
+    ['license', 'license'],
+    ['readme', 'md'],
+    ['changelog', 'md'],
+    ['contributing', 'md'],
+    ['code of conduct', 'md'],
+    ['other', 'brackets-yellow'], // Pro "Other" jazyky použij lokální ikonu
+]);
+
+function toSkillSlug(wakaName) {
+    if (!wakaName) return null;
+    const n = String(wakaName).toLowerCase().trim();
+    if (WA2SKILL.has(n)) return WA2SKILL.get(n);
+    // Pokud není v mapování, zkusíme použít název přímo
+    return n;
 }
 
-// Jazyky → Skill icons + procenta
+// Jazyky → používá pouze lokální ikony z icon-language/ + procenta
 function formatLanguagesData(languagesData) {
-  const langs = (languagesData?.data || []).map((lang) => ({
-    name: (lang.name || "").toLowerCase().replace(/\s+/g, ""),
-    percent: Number.isFinite(lang.percent) ? lang.percent.toFixed(1) : "0.0",
-  }));
-  if (langs.length === 0) return "No languages";
-  const url = `https://skillicons.dev/icons?i=${langs
-    .map((l) => l.name)
-    .join(",")}&perline=8`;
-  const list = langs.map((l) => `**${l.name}**: ${l.percent}%`).join(" · ");
-  return `<p align="center"><img src="${url}" alt="Language skill icons"/></p>\n<p align="center">${list}</p>`;
+    console.log('\n=== DEBUG: Language Processing ===');
+    (languagesData?.data || []).forEach(l => {
+        const original = l.name;
+        const slug = toSkillSlug(l.name);
+        const iconPath = `icon-language/${slug}.png`;
+        const hasLocalIcon = fs.existsSync(iconPath);
+        const source = slug ? (hasLocalIcon ? 'LOCAL (fallback)' : 'SKILLICONS (primary)') : 'TEXT';
+        console.log(`${original} → ${slug} → ${iconPath} (${source})`);
+    });
+    console.log('=== END DEBUG ===\n');
+
+    const langs = (languagesData?.data || [])
+        .map(l => ({
+            raw: l.name,
+            slug: toSkillSlug(l.name),
+            percent: Number.isFinite(l.percent) ? l.percent : 0,
+        }))
+        .sort((a, b) => b.percent - a.percent);
+
+    if (langs.length === 0) return 'No languages';
+
+    const icons = [];
+    const leftovers = [];
+    for (const l of langs) {
+        if (l.slug) {
+            // Určení barvy podle procenta
+            let percentColor = '#6b7280'; // šedá pro nízké hodnoty
+            if (l.percent >= 30) percentColor = '#10b981'; // zelená pro vysoké
+            else if (l.percent >= 15) percentColor = '#3b82f6'; // modrá pro střední
+            else if (l.percent >= 5) percentColor = '#f59e0b'; // oranžová pro nízké
+
+            // Kontrola, zda existuje lokální ikona pro fallback
+            const iconPath = `icon-language/${l.slug}.png`;
+            const hasLocalIcon = fs.existsSync(iconPath);
+
+            // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
+            const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
+
+            icons.push(
+                `<span style="display: inline-block; text-align: center; margin: 0 8px;">
+           <img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" />
+           <br/><sub style="font-family: 'Courier New', monospace; font-weight: bold; color: ${percentColor};">${l.percent.toFixed(1)}%</sub>
+         </span>`
+            );
+        } else {
+            // Pokud nemáme slug, zobrazíme pouze text
+            leftovers.push(`**${l.raw}**: ${l.percent.toFixed(1)}%`);
+        }
+    }
+
+    const iconsRow = icons.length ? `<p align="center">${icons.join('')}</p>` : '';
+    const textRow = leftovers.length ? `<p align="center">${leftovers.join(' · ')}</p>` : '';
+    return `${iconsRow}\n${textRow}`.trim();
 }
 
-// Top repos → tabulka
+// Top repos → moderní design s ikonami a více informacemi
 async function getTopRepos(limit = 5) {
-  const repos = await fetchJSON(
-    `https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`
-  );
-  repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
-  const rows = repos.slice(0, limit).map((r) => {
-    const stars = `★ ${r.stargazers_count}`;
-    const lastCommit = new Date(r.pushed_at).toISOString().split("T")[0];
-    return `| [${r.name}](${r.html_url}) | ${stars} | ${lastCommit} |`;
-  });
-  return {
-    table: `| Repo | Stars | Last commit |\n|------|-------|-------------|\n${rows.join(
-      "\n"
-    )}`,
-    total: repos.length,
-    used: Math.min(limit, repos.length),
-  };
+    const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
+    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+
+    const topRepos = repos.slice(0, limit);
+    const repoCards = topRepos.map(r => {
+        // Určení ikony podle jazyka - vždy skillicons.dev
+        const language = r.language?.toLowerCase() || 'other';
+        const iconSlug = toSkillSlug(language) || 'brackets-yellow';
+        const iconSrc = `https://skillicons.dev/icons?i=${iconSlug}`;
+
+        // Formátování dat na jeden řádek
+        const stats = [];
+        if (r.stargazers_count > 0) stats.push(`⭐ ${r.stargazers_count}`);
+        if (r.forks_count > 0) stats.push(`🍴 ${r.forks_count}`);
+        const lastCommit = new Date(r.pushed_at).toLocaleDateString('cs-CZ', {
+            day: '2-digit',
+            month: '2-digit',
+            year: '2-digit',
+        });
+        stats.push(`📅 ${lastCommit}`);
+
+        // Určení barvy podle popularity
+        let badgeColor = '#6b7280'; // šedá
+        if (r.stargazers_count >= 100) badgeColor = '#10b981'; // zelená
+        else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
+        else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
+
+        // Vytvoření moderní karty s transparentním pozadím
+        return `<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
+  <div style="display: flex; align-items: center; margin-bottom: 12px;">
+    <img src="${iconSrc}" alt="${language}" height="28" style="margin-right: 12px; border-radius: 4px;" />
+    <div>
+      <strong><a href="${r.html_url}" style="color: #60a5fa; text-decoration: none; font-size: 16px;">${r.name}</a></strong>
+      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+        ${r.description || 'No description'}
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+    <div style="font-size: 12px; color: #6b7280;">
+      ${stats.join(' • ')}
+    </div>
+    <span style="background: ${badgeColor}; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+      ${r.language || 'Other'}
+    </span>
+  </div>
+</div>`;
+    });
+
+    const cardsHtml = `<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
+${repoCards.join('\n')}
+</div>`;
+
+    return {
+        table: cardsHtml,
+        total: repos.length,
+        used: Math.min(limit, repos.length),
+    };
 }
 
 // Commits → timeline styl
 async function getRecentCommits(limit = 5) {
-  try {
-    const commits = await fetchJSON(
-      `https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`
-    );
-    return {
-      lines: commits.map((c) => {
-        const msg = c.commit.message || "";
-        let emoji = "📝";
-        if (msg.startsWith("feat")) emoji = "✨";
-        else if (msg.startsWith("fix")) emoji = "🐛";
-        else if (msg.startsWith("chore")) emoji = "🔧";
-        return `- ${emoji} ${msg} ([view](${c.html_url}))`;
-      }),
-      count: commits.length,
-    };
-  } catch {
-    return { lines: ["(no recent commits found in profile repo)"], count: 0 };
-  }
+    try {
+        const commits = await fetchJSON(`https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`);
+        return {
+            lines: commits.map(c => {
+                const msg = c.commit.message || '';
+                let emoji = '📝';
+                if (msg.startsWith('feat')) emoji = '✨';
+                else if (msg.startsWith('fix')) emoji = '🐛';
+                else if (msg.startsWith('chore')) emoji = '🔧';
+                return `- ${emoji} ${msg} ([view](${c.html_url}))`;
+            }),
+            count: commits.length,
+        };
+    } catch {
+        return { lines: ['(no recent commits found in profile repo)'], count: 0 };
+    }
+}
+
+// Generuje SVG sparkline graf z hodnot
+function buildSparklineSVG(values) {
+    if (!Array.isArray(values) || values.length === 0) {
+        return '<p align="center">No data</p>';
+    }
+
+    const width = 120;
+    const height = 30;
+    const padding = 2;
+    const strokeWidth = 1.5;
+
+    // Normalizace hodnot
+    const maxValue = Math.max(...values);
+    const minValue = Math.min(...values);
+    const range = maxValue - minValue || 1;
+
+    // Výpočet bodů
+    const points = values
+        .map((value, index) => {
+            const x = padding + (index / (values.length - 1)) * (width - 2 * padding);
+            const y = height - padding - ((value - minValue) / range) * (height - 2 * padding);
+            return `${x},${y}`;
+        })
+        .join(' ');
+
+    // Barva na základě trendu
+    const firstHalf = values.slice(0, Math.ceil(values.length / 2));
+    const secondHalf = values.slice(Math.ceil(values.length / 2));
+    const firstAvg = firstHalf.reduce((a, b) => a + b, 0) / firstHalf.length;
+    const secondAvg = secondHalf.reduce((a, b) => a + b, 0) / secondHalf.length;
+    const strokeColor = secondAvg > firstAvg ? '#10b981' : secondAvg < firstAvg ? '#ef4444' : '#6b7280';
+
+    return `<p align="center">
+<svg width="${width}" height="${height}" xmlns="http://www.w3.org/2000/svg">
+  <polyline
+    fill="none"
+    stroke="${strokeColor}"
+    stroke-width="${strokeWidth}"
+    points="${points}"
+  />
+</svg>
+</p>`;
 }
 
 function codeBlock(content) {
-  return "```\n" + content + "\n```";
+    return '```\n' + content + '\n```';
 }
 
 // ---- Main ----
 (async function main() {
-  hr();
-  info(
-    `Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? " (dry-run)" : ""}${
-      VERBOSE ? " (verbose)" : ""
-    }`
-  );
-  info(
-    `WakaTime URLS: daily=${Boolean(WAKATIME.timeDataUrl)}, alltime=${Boolean(
-      WAKATIME.allTimeDataUrl
-    )}, langs=${Boolean(WAKATIME.languagesDataUrl)}`
-  );
-  hr();
+    hr();
+    info(`Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? ' (dry-run)' : ''}${VERBOSE ? ' (verbose)' : ''}`);
+    info(`WakaTime URLS: daily=${Boolean(WAKATIME.timeDataUrl)}, alltime=${Boolean(WAKATIME.allTimeDataUrl)}, langs=${Boolean(WAKATIME.languagesDataUrl)}`);
+    hr();
 
-  // 1) Kontrola README
-  const readmePath = "README.md";
-  await timed("Kontrola: README existuje", async () => {
-    if (!fs.existsSync(readmePath)) throw new Error("README.md nebyl nalezen!");
-  });
-
-  const original = fs.readFileSync(readmePath, "utf-8");
-  const summary = [];
-
-  // 2) Načtení dat (paralelně)
-  const [timeDaily, alltime, langs] = await timed(
-    "Načítám WakaTime + Langs",
-    async () => {
-      console.log(WAKATIME);
-      const res = await Promise.all([
-        fetchJSON(WAKATIME.timeDataUrl),
-        fetchJSON(WAKATIME.allTimeDataUrl),
-        fetchJSON(WAKATIME.languagesDataUrl),
-      ]);
-      const dailyCount = res?.[0]?.data?.length || 0;
-      const langsCount = res?.[2]?.data?.length || 0;
-      info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
-      return res;
-    }
-  );
-
-  // 3) Výpočty grafů
-  const { ascii, sparkSVG, allTimeLine } = await timed(
-    "Generuji grafy a summary",
-    async () => {
-      const ascii = createASCIIGraph(timeDaily?.data || []);
-      const daily = (timeDaily?.data || []).slice(-30);
-      const values = daily.map((d) => d.grand_total?.total_seconds || 0);
-      const sparkSVG = buildSparklineSVG(values);
-      const allTimeLine = `**All-time coding:** ${
-        alltime?.data?.grand_total?.text || "N/A"
-      }`;
-      verbose(`Sparkline points: ${values.length}`);
-      return { ascii, sparkSVG, allTimeLine };
-    }
-  );
-
-  // 4) Repozitáře a commity
-  const {
-    table: reposTable,
-    total: reposTotal,
-    used: reposUsed,
-  } = await timed("Sbírám top repozitáře", async () => getTopRepos(5));
-  info(`Repozitáře: použito ${reposUsed} z ${reposTotal}`);
-
-  const { lines: commitsLines, count: commitsCount } = await timed(
-    "Sbírám poslední commity",
-    async () => getRecentCommits(5)
-  );
-  info(`Commity: ${commitsCount}`);
-
-  // 5) Sestavení sekcí a náhrady
-  let updated = original;
-
-  const replaceAndTrack = (sectionKey, newContent) => {
-    const sec = SECTIONS[sectionKey];
-    const result = replaceSection(updated, sec.start, sec.end, newContent);
-    updated = result.content;
-    const changed = result.changed;
-    const reason = result.reason;
-    summary.push({
-      section: sectionKey,
-      changed,
-      reason,
-      bytes: newContent.length,
+    // 1) Kontrola README
+    const readmePath = 'README.md';
+    await timed('Kontrola: README existuje', async () => {
+        if (!fs.existsSync(readmePath)) throw new Error('README.md nebyl nalezen!');
     });
-    const label = changed
-      ? `Sekce ${sectionKey} aktualizována`
-      : `Sekce ${sectionKey} beze změny`;
-    (changed ? ok : info)(`${label} (${reason})`);
-  };
 
-  await timed("Aktualizuji sekce README", async () => {
-    replaceAndTrack(
-      "WAKA_MAIN",
-      `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(
-        ascii
-      )}\n</details>`
-    );
-    replaceAndTrack("LANGS", formatLanguagesData(langs));
-    replaceAndTrack("SPARK", sparkSVG);
-    replaceAndTrack("REPOS", reposTable);
-    replaceAndTrack("COMMITS", commitsLines.join("\n"));
-  });
+    const original = fs.readFileSync(readmePath, 'utf-8');
+    const summary = [];
 
-  // 6) Zápis nebo dry-run
-  await timed(
-    DRY_RUN ? "Dry-run: porovnání obsahu" : "Zapisuje se README",
-    async () => {
-      if (updated !== original) {
-        if (DRY_RUN) {
-          info("Změny detekovány, ale kvůli --dry-run se nezapisují.");
+    // 2) Načtení dat (paralelně)
+    const [timeDaily, alltime, langs] = await timed('Načítám WakaTime + Langs', async () => {
+        const res = await Promise.all([fetchJSON(WAKATIME.timeDataUrl), fetchJSON(WAKATIME.allTimeDataUrl), fetchJSON(WAKATIME.languagesDataUrl)]);
+        const dailyCount = res?.[0]?.data?.length || 0;
+        const langsCount = res?.[2]?.data?.length || 0;
+        info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
+        return res;
+    });
+
+    // 3) Výpočty grafů
+    const { ascii, sparkSVG, allTimeLine } = await timed('Generuji grafy a summary', async () => {
+        const ascii = createASCIIGraph(timeDaily?.data || []);
+        const daily = (timeDaily?.data || []).slice(-30);
+        const values = daily.map(d => d.grand_total?.total_seconds || 0);
+        const sparkSVG = buildSparklineSVG(values);
+        const allTimeLine = `**All-time coding:** ${alltime?.data?.grand_total?.text || 'N/A'}`;
+        verbose(`Sparkline points: ${values.length}`);
+        return { ascii, sparkSVG, allTimeLine };
+    });
+
+    // 4) Repozitáře a commity
+    const { table: reposTable, total: reposTotal, used: reposUsed } = await timed('Sbírám top repozitáře', async () => getTopRepos(5));
+    info(`Repozitáře: použito ${reposUsed} z ${reposTotal}`);
+
+    const { lines: commitsLines, count: commitsCount } = await timed('Sbírám poslední commity', async () => getRecentCommits(5));
+    info(`Commity: ${commitsCount}`);
+
+    // 5) Sestavení sekcí a náhrady
+    let updated = original;
+    const replaceAndTrack = (sectionKey, newContent) => {
+        const sec = SECTIONS[sectionKey];
+        const result = replaceSection(updated, sec.start, sec.end, newContent);
+        updated = result.content;
+        const changed = result.changed;
+        const reason = result.reason;
+        summary.push({ section: sectionKey, changed, reason, bytes: newContent.length });
+        const label = changed ? `Sekce ${sectionKey} aktualizována` : `Sekce ${sectionKey} beze změny`;
+        (changed ? ok : info)(`${label} (${reason})`);
+    };
+
+    await timed('Aktualizuji sekce README', async () => {
+        replaceAndTrack('WAKA_MAIN', `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(ascii)}\n</details>`);
+        replaceAndTrack('LANGS', formatLanguagesData(langs));
+        replaceAndTrack('SPARK', sparkSVG);
+        replaceAndTrack('REPOS', reposTable);
+        replaceAndTrack('COMMITS', commitsLines.join('\n'));
+    });
+
+    // 6) Zápis nebo dry-run
+    await timed(DRY_RUN ? 'Dry-run: porovnání obsahu' : 'Zapisuje se README', async () => {
+        if (updated !== original) {
+            if (DRY_RUN) {
+                info('Změny detekovány, ale kvůli --dry-run se nezapisují.');
+            } else {
+                fs.writeFileSync(readmePath, updated);
+                console.log(`${ICONS.write} ${COLORS.m}README aktualizován.${COLORS.reset}`);
+            }
         } else {
-          fs.writeFileSync(readmePath, updated);
-          console.log(
-            `${ICONS.write} ${COLORS.m}README aktualizován.${COLORS.reset}`
-          );
+            info('Žádné změny k zápisu.');
         }
-      } else {
-        info("Žádné změny k zápisu.");
-      }
+    });
+
+    // 7) Souhrn
+    hr();
+    console.log(`${COLORS.bold}Souhrn změn:${COLORS.reset}`);
+    summary.forEach(s => {
+        const mark = s.changed ? ICONS.ok : ICONS.dot;
+        console.log(`${mark} ${s.section.padEnd(10)} — ${s.changed ? COLORS.g + 'updated' : COLORS.c + 'no-diff'}${COLORS.reset} (${s.reason}), ~${s.bytes} B`);
+    });
+    hr();
+
+    // 8) Varování na chybějící env
+    const missing = Object.entries(WAKATIME)
+        .filter(([, v]) => !v)
+        .map(([k]) => k);
+    if (missing.length) {
+        warn(`Chybí env proměnné: ${missing.join(', ')} — příslušné sekce mohou být prázdné.`);
     }
-  );
 
-  // 7) Souhrn
-  hr();
-  console.log(`${COLORS.bold}Souhrn změn:${COLORS.reset}`);
-  summary.forEach((s) => {
-    const mark = s.changed ? ICONS.ok : ICONS.dot;
-    console.log(
-      `${mark} ${s.section.padEnd(10)} — ${
-        s.changed ? COLORS.g + "updated" : COLORS.c + "no-diff"
-      }${COLORS.reset} (${s.reason}), ~${s.bytes} B`
-    );
-  });
-  hr();
-
-  // 8) Varování na chybějící env
-  const missing = Object.entries(WAKATIME)
-    .filter(([, v]) => !v)
-    .map(([k]) => k);
-  if (missing.length) {
-    warn(
-      `Chybí env proměnné: ${missing.join(
-        ", "
-      )} — příslušné sekce mohou být prázdné.`
-    );
-  }
-
-  ok("Hotovo");
-})().catch((e) => {
-  err(e.stack || e.message);
-  process.exit(1);
+    ok('Hotovo');
+})().catch(e => {
+    err(e.stack || e.message);
+    process.exit(1);
 });
