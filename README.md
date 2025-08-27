@@ -38,33 +38,18 @@
 >📊 Last 7 days
 
 ```
-Čtv │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-Pát │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-Sob │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-Ned │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-Pon │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
-Úte │ 5 hrs 59 mins 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
-Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
+No data
 ```
 <!-- WAKATIME-END -->
 
 ## Languages
 
 <!-- LANGS-START -->
-<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="25" /> <span style="font-size: 8px;">48.1%</span> &nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="25" /> <span style="font-size: 8px;">37.4%</span> &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="25" /> <span style="font-size: 8px;">6.4%</span> &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="25" /> <span style="font-size: 8px;">3.3%</span> &nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="25" /> <span style="font-size: 8px;">1.6%</span> &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="25" /> <span style="font-size: 8px;">1.1%</span> &nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="25" /> <span style="font-size: 8px;">1.0%</span> &nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="25" /> <span style="font-size: 8px;">1.0%</span> &nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="25" /> <span style="font-size: 8px;">0.2%</span></p>
+No languages
 <!-- LANGS-END -->
 
 <!-- SPARK-START -->
-<p align="center">
-<svg width="120" height="30" xmlns="http://www.w3.org/2000/svg">
-  <polyline
-    fill="none"
-    stroke="#10b981"
-    stroke-width="1.5"
-    points="2,28 21.333333333333332,28 40.666666666666664,28 60,28 79.33333333333333,28 98.66666666666667,2 118,21.167028329200754"
-  />
-</svg>
-</p>
+<p align="center">No data</p>
 <!-- SPARK-END -->
 
 ## 📦 Top Repos
@@ -96,6 +81,10 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**📝 commit** (27. 08. 25 03:04)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f78265feea08c29ae432e4117c305d424e574f73)
+
 **📝 commit** (27. 08. 25 03:03)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/233f3fa71eb4775c1e3fd2da43d7d48297e83049)
@@ -111,10 +100,6 @@ by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/coof
 **📝 commit** (27. 08. 25 03:02)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/62d5e1d887e7efc6ecfc45f5b74e75bfb9ee5fca)
-
-**📝 commit** (27. 08. 25 03:02)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ae71ac028b57203a287cbf8d581330bea537ba36)
 
 
 <!-- COMMITS-END -->

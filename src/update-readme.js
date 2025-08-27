@@ -13,9 +13,8 @@ const NO_ANSI = ARGS.includes('--no-ansi');
 // ---- Tuning ----
 const USERNAME = process.env.GITHUB_REPOSITORY_OWNER || 'cooffeeRequired';
 const WAKATIME = {
-    timeDataUrl: process.env.WAKA_TIME_DAILY_URL,
-    allTimeDataUrl: process.env.WAKA_TIME_ALLTIME_URL,
-    languagesDataUrl: process.env.WAKA_TIME_LANGS_URL,
+    apiKey: process.env.WAKATIME_API_KEY,
+    baseUrl: 'https://api.wakatime.com/api/v1',
 };
 
 const SECTIONS = {
@@ -83,12 +82,18 @@ async function timed(label, fn) {
 }
 
 // ---- Network helpers ----
-function fetchJSON(url) {
+function fetchJSON(url, options = {}) {
     return new Promise((resolve, reject) => {
         if (!url) return reject(new Error('URL není definováno (missing env?)'));
         verbose(`GET ${url}`);
+
+        const headers = {
+            'User-Agent': 'readme-updater',
+            ...options.headers,
+        };
+
         https
-            .get(url, { headers: { 'User-Agent': 'readme-updater' } }, res => {
+            .get(url, { headers }, res => {
                 let data = '';
                 res.on('data', chunk => (data += chunk));
                 res.on('end', () => {
@@ -337,7 +342,7 @@ function toSkillSlug(wakaName) {
 // Jazyky → používá pouze lokální ikony z icon-language/ + procenta
 function formatLanguagesData(languagesData) {
     console.log('\n=== DEBUG: Language Processing ===');
-    const debugData = languagesData?.data || [];
+    const debugData = languagesData?.data?.[0]?.languages || [];
     if (Array.isArray(debugData)) {
         debugData.forEach(l => {
             const original = l.name;
@@ -352,9 +357,10 @@ function formatLanguagesData(languagesData) {
     }
     console.log('=== END DEBUG ===\n');
 
-    const data = languagesData?.data || [];
-    const langs = Array.isArray(data)
-        ? data
+    // API vrací data v jiné struktuře - languages jsou v data[0].languages
+    const languagesArray = languagesData?.data?.[0]?.languages || [];
+    const langs = Array.isArray(languagesArray)
+        ? languagesArray
               .map(l => ({
                   raw: l.name,
                   slug: toSkillSlug(l.name),
@@ -540,11 +546,54 @@ function codeBlock(content) {
     return '```\n' + content + '\n```';
 }
 
+// ---- WakaTime API helpers ----
+function fetchWakaTimeAPI(endpoint) {
+    if (!WAKATIME.apiKey) {
+        throw new Error('WAKATIME_API_KEY není nastaven v prostředí');
+    }
+
+    const url = `${WAKATIME.baseUrl}${endpoint}`;
+    return fetchJSON(url, {
+        headers: {
+            Authorization: `Bearer ${WAKATIME.apiKey}`,
+        },
+    });
+}
+
+async function getWakaTimeStats() {
+    // Získat statistiky za posledních 7 dní
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7);
+
+    const start = startDate.toISOString().split('T')[0];
+    const end = endDate.toISOString().split('T')[0];
+
+    return await fetchWakaTimeAPI(`/users/current/summaries?start=${start}&end=${end}`);
+}
+
+async function getWakaTimeAllTime() {
+    // Získat celkové statistiky
+    return await fetchWakaTimeAPI('/users/current/stats');
+}
+
+async function getWakaTimeLanguages() {
+    // Získat jazyky za posledních 7 dní
+    const endDate = new Date();
+    const startDate = new Date();
+    startDate.setDate(startDate.getDate() - 7);
+
+    const start = startDate.toISOString().split('T')[0];
+    const end = endDate.toISOString().split('T')[0];
+
+    return await fetchWakaTimeAPI(`/users/current/summaries?start=${start}&end=${end}`);
+}
+
 // ---- Main ----
 (async function main() {
     hr();
     info(`Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? ' (dry-run)' : ''}${VERBOSE ? ' (verbose)' : ''}`);
-    info(`WakaTime URLS: daily=${Boolean(WAKATIME.timeDataUrl)}, alltime=${Boolean(WAKATIME.allTimeDataUrl)}, langs=${Boolean(WAKATIME.languagesDataUrl)}`);
+    info(`WakaTime API: ${WAKATIME.apiKey ? 'připojeno' : 'není nastaveno'}`);
     hr();
 
     // 1) Kontrola README
@@ -557,15 +606,19 @@ function codeBlock(content) {
     const summary = [];
 
     // 2) Načtení dat (paralelně)
-    const [timeDaily, alltime, langs] = await timed('Načítám WakaTime + Langs', async () => {
-        const res = await Promise.all([fetchJSON(WAKATIME.timeDataUrl), fetchJSON(WAKATIME.allTimeDataUrl), fetchJSON(WAKATIME.languagesDataUrl)]);
-        const dailyCount = res?.[0]?.data?.length || 0;
-        const langsCount = res?.[2]?.data?.length || 0;
-        info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
-        return res;
+    const [timeDaily, alltime, langs] = await timed('Načítám WakaTime API data', async () => {
+        try {
+            const res = await Promise.all([getWakaTimeStats(), getWakaTimeAllTime(), getWakaTimeLanguages()]);
+            const dailyCount = res?.[0]?.data?.length || 0;
+            const langsCount = res?.[2]?.data?.[0]?.languages?.length || 0;
+            info(`WakaTime API: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
+            return res;
+        } catch (error) {
+            warn(`WakaTime API chyba: ${error.message}`);
+            // Vrátit prázdná data při chybě
+            return [null, null, null];
+        }
     });
-
-    console.log(langs);
 
     // 3) Výpočty grafů
     const { ascii, sparkSVG, allTimeLine } = await timed('Generuji grafy a summary', async () => {
@@ -630,9 +683,7 @@ function codeBlock(content) {
     hr();
 
     // 8) Varování na chybějící env
-    const missing = Object.entries(WAKATIME)
-        .filter(([, v]) => !v)
-        .map(([k]) => k);
+    const missing = WAKATIME.apiKey ? [] : ['WAKATIME_API_KEY'];
     if (missing.length) {
         warn(`Chybí env proměnné: ${missing.join(', ')} — příslušné sekce mohou být prázdné.`);
     }
