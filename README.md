@@ -51,7 +51,7 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## Languages
 
 <!-- LANGS-START -->
-<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="42" /><br><span style="color: #10b981">`48.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="42" /><br><span style="color: #10b981">`37.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="42" /><br><span style="color: #f59e0b">`6.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="42" /><br><span style="color: #6b7280">`3.3%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="42" /><br><span style="color: #6b7280">`1.6%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="42" /><br><span style="color: #6b7280">`1.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="42" /><br><span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="42" /><br><span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="42" /><br><span style="color: #6b7280">`0.2%`</span></p>
+No languages
 <!-- LANGS-END -->
 
 <!-- SPARK-START -->
@@ -96,25 +96,25 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-**📝 commit** (27. 08. 25 02:51)
+**📝 commit** (27. 08. 25 02:59)
 > update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/118e3980ee333265acdd30e5775172ec2195ce85)
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/9542372958eee2fd68492616126fd751ce7a894f)
 
-**📝 commit** (27. 08. 25 02:50)
+**📝 commit** (27. 08. 25 02:58)
 > update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6c3c199b7832b564b56257974c1704a2ed337293)
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/092a885c3ded384a6a04bee2d4e3a72a58846124)
 
-**📝 commit** (27. 08. 25 02:49)
+**📝 commit** (27. 08. 25 02:57)
 > update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6bc7784433523140017fa7b63721e98d0702b02e)
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/54f59a2348fcf3c60342ef01092c3765306159dd)
 
-**📝 commit** (27. 08. 25 02:47)
+**📝 commit** (27. 08. 25 02:57)
 > update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/5a8d1349eb8e1ce42968b60e6298a4e852814bb9)
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/21dbf9f72a97f70835ad92aaf5e49de48f8b6076)
 
-**📝 commit** (27. 08. 25 02:47)
+**📝 commit** (27. 08. 25 02:54)
 > update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d5acc0074d1e1dbeb0c0e81112c00a865621f13e)
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/05ac33991e4bf253f7fc1855a2fed3366eab69fd)
 
 
 <!-- COMMITS-END -->
