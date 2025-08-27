@@ -380,7 +380,7 @@ function formatLanguagesData(languagesData) {
             languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="25" /> \`${l.percent.toFixed(1)}%\``);
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
-            languageItems.push(`**${l.raw}**: \`${l.percent.toFixed(1)}%\``);
+            languageItems.push(`**${l.raw}**<br><span style="${colorClass}">${l.percent.toFixed(1)}%</span>`);
         }
     }
 
