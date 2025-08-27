@@ -78,7 +78,7 @@ async function timed(label, fn) {
         return res;
     } catch (e) {
         err(`${label} — ${e.message}`);
-        throw e;
+        //throw e;
     }
 }
 
@@ -420,19 +420,19 @@ async function getTopRepos(limit = 5) {
         else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
         else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
 
-        // Vytvoření GitHub-kompatibilní karty
-        return `<div style="display: inline-block; margin: 8px; padding: 16px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; min-width: 280px; text-align: left;">
-  <div style="margin-bottom: 12px;">
-    <img src="${iconSrc}" alt="${language}" height="24" style="margin-right: 8px; vertical-align: middle;" />
-    <strong><a href="${r.html_url}" style="color: #60a5fa; text-decoration: none;">${r.name}</a></strong>
+        // Vytvoření jednoduché GitHub-kompatibilní karty
+        return `<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
+  <div style="margin-bottom: 8px;">
+    <img src="${iconSrc}" alt="${language}" height="20" style="margin-right: 6px; vertical-align: middle;" />
+    <strong><a href="${r.html_url}" style="color: #58a6ff;">${r.name}</a></strong>
   </div>
-  <div style="font-size: 14px; color: #9ca3af; margin-bottom: 8px; line-height: 1.4;">
+  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
     ${r.description || 'No description'}
   </div>
-  <div style="font-size: 12px; color: #6b7280; margin-bottom: 8px;">
+  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
     ${stats.join(' • ')}
   </div>
-  <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold;">
+  <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
     ${r.language || 'Other'}
   </span>
 </div>`;
@@ -507,24 +507,24 @@ async function getRecentCommits(limit = 5) {
             // Zkrácení zprávy pokud je příliš dlouhá
             const shortMsg = msg.length > 60 ? msg.substring(0, 60) + '...' : msg;
 
-            return `<div style="margin: 8px 0; padding: 12px; border-radius: 6px; background: #1f2937; border: 1px solid #374151;">
-  <div style="margin-bottom: 8px;">
-    <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-right: 8px;">
+            return `<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
+  <div style="margin-bottom: 6px;">
+    <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
       ${badgeText}
     </span>
-    <span style="font-size: 12px; color: #9ca3af;">${date}</span>
+    <span style="color: #656d76; font-size: 12px;">${date}</span>
   </div>
-  <div style="font-size: 14px; color: #e5e7eb; margin-bottom: 6px; line-height: 1.4;">
+  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
     ${emoji} ${shortMsg}
   </div>
-  <div style="font-size: 12px; color: #6b7280;">
+  <div style="color: #656d76; font-size: 12px;">
     by <strong>${author}</strong> • 
-    <a href="${c.html_url}" style="color: #60a5fa; text-decoration: none;">view commit</a>
+    <a href="${c.html_url}" style="color: #58a6ff;">view commit</a>
   </div>
 </div>`;
         });
 
-        const timelineHtml = `<div style="max-width: 500px;">
+        const timelineHtml = `<div>
 ${commitCards.join('\n')}
 </div>`;
 
