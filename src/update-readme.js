@@ -369,31 +369,15 @@ function formatLanguagesData(languagesData) {
             // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
             const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
 
-            // Určení barvy podle procenta
-            let colorClass = '';
-            if (l.percent >= 30) colorClass = 'color: #10b981'; // zelená pro vysoká procenta
-            else if (l.percent >= 10) colorClass = 'color: #3b82f6'; // modrá pro střední procenta
-            else if (l.percent >= 5) colorClass = 'color: #f59e0b'; // oranžová pro nižší procenta
-            else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
-
-            languageItems.push(
-                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="32" /> <span style="${colorClass}">${l.percent.toFixed(1)}%</span>`
-            );
+            languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="32" /> ${l.percent.toFixed(1)}%`);
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
-            // Určení barvy podle procenta
-            let colorClass = '';
-            if (l.percent >= 30) colorClass = 'color: #10b981'; // zelená pro vysoká procenta
-            else if (l.percent >= 10) colorClass = 'color: #3b82f6'; // modrá pro střední procenta
-            else if (l.percent >= 5) colorClass = 'color: #f59e0b'; // oranžová pro nižší procenta
-            else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
-
-            languageItems.push(`**${l.raw}**: <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`);
+            languageItems.push(`**${l.raw}**: \`${l.percent.toFixed(1)}%\``);
         }
     }
 
     // Spojit všechny jazyky s konzistentními mezerami a vycentrovat
-    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
+    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
 }
 
 // Top repos → moderní design s ikonami a více informacemi
