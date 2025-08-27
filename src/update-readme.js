@@ -357,39 +357,27 @@ function formatLanguagesData(languagesData) {
 
     if (langs.length === 0) return 'No languages';
 
-    // Rozdělit jazyky do řádků po 4-5 jazycích
-    const rows = [];
-    for (let i = 0; i < langs.length; i += 4) {
-        const row = langs.slice(i, i + 4);
-        const rowItems = [];
+    // Vytvořit jednoduchý seznam jazyků vedle sebe
+    const languageItems = [];
 
-        for (const l of row) {
-            if (l.slug) {
-                // Určení barvy podle procenta
-                let percentColor = '#6b7280'; // šedá pro nízké hodnoty
-                if (l.percent >= 30) percentColor = '#10b981'; // zelená pro vysoké
-                else if (l.percent >= 15) percentColor = '#3b82f6'; // modrá pro střední
-                else if (l.percent >= 5) percentColor = '#f59e0b'; // oranžová pro nízké
+    for (const l of langs) {
+        if (l.slug) {
+            // Kontrola, zda existuje lokální ikona pro fallback
+            const iconPath = `icon-language/${l.slug}.png`;
+            const hasLocalIcon = fs.existsSync(iconPath);
 
-                // Kontrola, zda existuje lokální ikona pro fallback
-                const iconPath = `icon-language/${l.slug}.png`;
-                const hasLocalIcon = fs.existsSync(iconPath);
+            // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
+            const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
 
-                // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
-                const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
-
-                rowItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="32" /> \`${l.percent.toFixed(1)}%\``);
-            } else {
-                // Pokud nemáme slug, zobrazíme pouze text
-                rowItems.push(`**${l.raw}**: \`${l.percent.toFixed(1)}%\``);
-            }
+            languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="24" /> \`${l.percent.toFixed(1)}%\``);
+        } else {
+            // Pokud nemáme slug, zobrazíme pouze text
+            languageItems.push(`**${l.raw}**: \`${l.percent.toFixed(1)}%\``);
         }
-
-        rows.push(rowItems.join(' &nbsp;&nbsp;&nbsp;&nbsp; '));
     }
 
-    const languagesHtml = rows.join('\n\n');
-    return languagesHtml;
+    // Spojit všechny jazyky s konzistentními mezerami
+    return languageItems.join(' &nbsp;&nbsp; ');
 }
 
 // Top repos → moderní design s ikonami a více informacemi
