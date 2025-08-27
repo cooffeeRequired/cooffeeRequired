@@ -384,8 +384,8 @@ function formatLanguagesData(languagesData) {
         }
     }
 
-    // Spojit všechny jazyky s konzistentními mezerami a vycentrovat
-    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
+    // Spojit všechny jazyky s menšími mezerami na jeden řádek a vycentrovat
+    return `<p align="center">${languageItems.join(' &nbsp;&nbsp; ')}</p>`;
 }
 
 // Top repos → moderní design s ikonami a více informacemi
