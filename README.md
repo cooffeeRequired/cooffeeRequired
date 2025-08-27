@@ -50,6 +50,7 @@ Sob │ 0 secs     ░░░░░░░░░░░░░░░░░░░░�
 Ned │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Pon │ 0 secs     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 Úte │ 5 hrs 59 mins ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓
+Stř │ 1 hr 34 mins ▓▓▓▓▓▓▓░░░░░░░░░░░░░░░░░░░░░
 ```
 </details>
 <!-- WAKATIME-END -->
@@ -75,16 +76,16 @@ Pon │ 0 secs     ░░░░░░░░░░░░░░░░░░░░�
 | [SkriptMail](https://github.com/cooffeeRequired/SkriptMail) | ★ 4 | 2025-05-10 |
 | [Jsonic](https://github.com/cooffeeRequired/Jsonic) | ★ 1 | 2025-08-16 |
 | [skGoat](https://github.com/cooffeeRequired/skGoat) | ★ 1 | 2025-05-06 |
-| [cooffeeRequired](https://github.com/cooffeeRequired/cooffeeRequired) | ★ 0 | 2025-08-26 |
+| [cooffeeRequired](https://github.com/cooffeeRequired/cooffeeRequired) | ★ 0 | 2025-08-27 |
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 <!-- COMMITS-START -->
+- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/b219fba30634f21b6fde50d72b21636fe90cbd2a))
 - 📝 Update update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/3125cfb07fdee518dbad74344e6d1fc01d8d3d63))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/cb5464d7358eb8fe6b0dbf9014cb393a4fb89130))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/5910ebb7ce91ca3c98e235e2349c4268e504a046))
 - 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/f1b08fd2894138c1467b9eebe6c60362fc05f3b3))
-- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/02c9ae9d6ef1f53d9d2f3ade3d039118cb496305))
 <!-- COMMITS-END -->
 ---
 
