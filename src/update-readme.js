@@ -602,7 +602,7 @@ function codeBlock(content) {
     };
 
     await timed('Aktualizuji sekce README', async () => {
-        replaceAndTrack('WAKA_MAIN', `${allTimeLine}\n\n<details><summary>📊 Posledních 7 dní</summary>\n\n${codeBlock(ascii)}\n</details>`);
+        replaceAndTrack('WAKA_MAIN', `${allTimeLine}\n\n>📊 Last 7 days\n\n${codeBlock(ascii)}`);
         replaceAndTrack('LANGS', formatLanguagesData(langs));
         replaceAndTrack('SPARK', sparkSVG);
         replaceAndTrack('REPOS', reposTable);

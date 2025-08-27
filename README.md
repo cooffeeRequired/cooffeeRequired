@@ -35,7 +35,7 @@
 <!-- WAKATIME-START -->
 **All-time coding:** N/A
 
-<details><summary>📊 Posledních 7 dní</summary>
+>📊 Last 7 days
 
 ```
 Čtv │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
@@ -46,7 +46,6 @@ Pon │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜�
 Úte │ 5 hrs 59 mins 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
 Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ```
-</details>
 <!-- WAKATIME-END -->
 
 ## Languages
@@ -97,6 +96,10 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**📝 commit** (27. 08. 25 02:47)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d5acc0074d1e1dbeb0c0e81112c00a865621f13e)
+
 **📝 commit** (27. 08. 25 02:45)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f540fa4c989d518990f564be1e9aeb59febea55f)
@@ -112,10 +115,6 @@ by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/coof
 **📝 commit** (27. 08. 25 02:40)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/7706c4282b92401f423b42258119548b5955a7c7)
-
-**📝 commit** (27. 08. 25 02:38)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/482aea70d846cddd75e9b10b4ea76a81b838681b)
 
 
 <!-- COMMITS-END -->
