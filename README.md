@@ -51,7 +51,7 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## Languages
 
 <!-- LANGS-START -->
-No languages
+<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="42" /> `48.1%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="42" /> `37.4%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="42" /> `6.4%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="42" /> `3.3%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="42" /> `1.6%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="42" /> `1.1%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="42" /> `1.0%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="42" /> `1.0%` &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="42" /> `0.2%`</p>
 <!-- LANGS-END -->
 
 <!-- SPARK-START -->
@@ -96,6 +96,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**📝 commit** (27. 08. 25 03:00)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d18d09c17364fcbcd95ecda151df10236e4d2bd0)
+
 **📝 commit** (27. 08. 25 02:59)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6fc96cce4953c33543d8f4d54e3df5842e82d1d6)
@@ -111,10 +115,6 @@ by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/coof
 **📝 commit** (27. 08. 25 02:57)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/54f59a2348fcf3c60342ef01092c3765306159dd)
-
-**📝 commit** (27. 08. 25 02:57)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/21dbf9f72a97f70835ad92aaf5e49de48f8b6076)
 
 
 <!-- COMMITS-END -->
