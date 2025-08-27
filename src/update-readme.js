@@ -420,22 +420,24 @@ async function getTopRepos(limit = 5) {
         else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
         else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
 
-        // Vytvoření moderní karty s transparentním pozadím
-        return `<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="${iconSrc}" alt="${language}" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="${r.html_url}" style="color: #60a5fa; text-decoration: none; font-size: 16px;">${r.name}</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+        // Vytvoření ultra-moderní karty s glassmorphism efektem
+        return `<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="${iconSrc}" alt="${language}" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="${r.html_url}" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">${r.name}</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         ${r.description || 'No description'}
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       ${stats.join(' • ')}
     </div>
-    <span style="background: ${badgeColor}; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: ${badgeColor}; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       ${r.language || 'Other'}
     </span>
   </div>
@@ -453,23 +455,97 @@ ${repoCards.join('\n')}
     };
 }
 
-// Commits → timeline styl
+// Commits → moderní timeline s detaily
 async function getRecentCommits(limit = 5) {
     try {
         const commits = await fetchJSON(`https://api.github.com/repos/${USERNAME}/${USERNAME}/commits?per_page=${limit}`);
+
+        const commitCards = commits.map(c => {
+            const msg = c.commit.message || '';
+            const author = c.commit.author?.name || 'Unknown';
+            const date = new Date(c.commit.author?.date || Date.now()).toLocaleDateString('cs-CZ', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+            });
+
+            // Určení emoji a barvy podle typu commitu
+            let emoji = '📝';
+            let badgeColor = '#6b7280';
+            let badgeText = 'commit';
+
+            if (msg.startsWith('feat')) {
+                emoji = '✨';
+                badgeColor = '#10b981';
+                badgeText = 'feature';
+            } else if (msg.startsWith('fix')) {
+                emoji = '🐛';
+                badgeColor = '#ef4444';
+                badgeText = 'fix';
+            } else if (msg.startsWith('chore')) {
+                emoji = '🔧';
+                badgeColor = '#f59e0b';
+                badgeText = 'chore';
+            } else if (msg.startsWith('docs')) {
+                emoji = '📚';
+                badgeColor = '#3b82f6';
+                badgeText = 'docs';
+            } else if (msg.startsWith('style')) {
+                emoji = '🎨';
+                badgeColor = '#8b5cf6';
+                badgeText = 'style';
+            } else if (msg.startsWith('refactor')) {
+                emoji = '♻️';
+                badgeColor = '#06b6d4';
+                badgeText = 'refactor';
+            } else if (msg.startsWith('test')) {
+                emoji = '🧪';
+                badgeColor = '#84cc16';
+                badgeText = 'test';
+            } else if (msg.startsWith('perf')) {
+                emoji = '⚡';
+                badgeColor = '#f97316';
+                badgeText = 'perf';
+            }
+
+            // Zkrácení zprávy pokud je příliš dlouhá
+            const shortMsg = msg.length > 60 ? msg.substring(0, 60) + '...' : msg;
+
+            return `<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">${emoji}</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        ${badgeText}
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">${date}</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      ${shortMsg}
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>${author}</strong> • 
+      <a href="${c.html_url}" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>`;
+        });
+
+        const timelineHtml = `<div style="max-width: 600px; margin: 0 auto;">
+${commitCards.join('\n')}
+</div>`;
+
         return {
-            lines: commits.map(c => {
-                const msg = c.commit.message || '';
-                let emoji = '📝';
-                if (msg.startsWith('feat')) emoji = '✨';
-                else if (msg.startsWith('fix')) emoji = '🐛';
-                else if (msg.startsWith('chore')) emoji = '🔧';
-                return `- ${emoji} ${msg} ([view](${c.html_url}))`;
-            }),
+            lines: [timelineHtml],
             count: commits.length,
         };
     } catch {
-        return { lines: ['(no recent commits found in profile repo)'], count: 0 };
+        return {
+            lines: ['<div style="text-align: center; color: #6b7280; font-style: italic;">(no recent commits found in profile repo)</div>'],
+            count: 0,
+        };
     }
 }
 

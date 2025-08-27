@@ -99,97 +99,107 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 
 <!-- REPOS-START -->
 <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
-<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="https://skillicons.dev/icons?i=java" alt="java" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="https://github.com/cooffeeRequired/skJson" style="color: #60a5fa; text-decoration: none; font-size: 16px;">skJson</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="https://skillicons.dev/icons?i=java" alt="java" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="https://github.com/cooffeeRequired/skJson" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">skJson</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         About Script Addon for using Json (Gson) in script
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       ⭐ 21 • 🍴 4 • 📅 14. 08. 25
     </div>
-    <span style="background: #f59e0b; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: #f59e0b; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       Java
     </span>
   </div>
 </div>
-<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="https://skillicons.dev/icons?i=kotlin" alt="kotlin" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="https://github.com/cooffeeRequired/SkriptMail" style="color: #60a5fa; text-decoration: none; font-size: 16px;">SkriptMail</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="https://skillicons.dev/icons?i=kotlin" alt="kotlin" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="https://github.com/cooffeeRequired/SkriptMail" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">SkriptMail</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         The Simple Skript Mailer using Kotlin JDK
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       ⭐ 4 • 📅 10. 05. 25
     </div>
-    <span style="background: #6b7280; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: #6b7280; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       Kotlin
     </span>
   </div>
 </div>
-<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="https://skillicons.dev/icons?i=brackets-yellow" alt="other" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="https://github.com/cooffeeRequired/Jsonic" style="color: #60a5fa; text-decoration: none; font-size: 16px;">Jsonic</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="https://skillicons.dev/icons?i=brackets-yellow" alt="other" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="https://github.com/cooffeeRequired/Jsonic" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">Jsonic</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       ⭐ 1 • 📅 16. 08. 25
     </div>
-    <span style="background: #6b7280; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: #6b7280; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       Other
     </span>
   </div>
 </div>
-<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="https://skillicons.dev/icons?i=java" alt="java" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="https://github.com/cooffeeRequired/skGoat" style="color: #60a5fa; text-decoration: none; font-size: 16px;">skGoat</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="https://skillicons.dev/icons?i=java" alt="java" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="https://github.com/cooffeeRequired/skGoat" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">skGoat</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         Addon that fills in missing syntax, and improves working with inventories
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       ⭐ 1 • 🍴 1 • 📅 06. 05. 25
     </div>
-    <span style="background: #6b7280; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: #6b7280; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       Java
     </span>
   </div>
 </div>
-<div style="display: inline-block; margin: 8px; padding: 16px; border: 1px solid rgba(55, 65, 81, 0.3); border-radius: 12px; background: rgba(31, 41, 55, 0.1); backdrop-filter: blur(10px); min-width: 280px; text-align: left;">
-  <div style="display: flex; align-items: center; margin-bottom: 12px;">
-    <img src="https://skillicons.dev/icons?i=js" alt="javascript" height="28" style="margin-right: 12px; border-radius: 4px;" />
-    <div>
-      <strong><a href="https://github.com/cooffeeRequired/cooffeeRequired" style="color: #60a5fa; text-decoration: none; font-size: 16px;">cooffeeRequired</a></strong>
-      <div style="font-size: 12px; color: #9ca3af; margin-top: 2px;">
+<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
+  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+    <img src="https://skillicons.dev/icons?i=js" alt="javascript" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
+    <div style="flex: 1;">
+      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
+        <a href="https://github.com/cooffeeRequired/cooffeeRequired" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">cooffeeRequired</a>
+      </h3>
+      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
         My page
-      </div>
+      </p>
     </div>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-    <div style="font-size: 12px; color: #6b7280;">
+  <div style="display: flex; justify-content: space-between; align-items: center;">
+    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
       📅 27. 08. 25
     </div>
-    <span style="background: #6b7280; color: white; padding: 4px 8px; border-radius: 6px; font-size: 11px; font-weight: bold;">
+    <span style="background: #6b7280; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
       JavaScript
     </span>
   </div>
@@ -200,11 +210,98 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/aa7c016893d97813059029c49b19e7eee01f31df))
-- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/b219fba30634f21b6fde50d72b21636fe90cbd2a))
-- 📝 Update update-readme.yml ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/3125cfb07fdee518dbad74344e6d1fc01d8d3d63))
-- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/cb5464d7358eb8fe6b0dbf9014cb393a4fb89130))
-- 🔧 chore: auto-update README (WakaTime + GitHub) ([view](https://github.com/cooffeeRequired/cooffeeRequired/commit/5910ebb7ce91ca3c98e235e2349c4268e504a046))
+<div style="max-width: 600px; margin: 0 auto;">
+<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">🔧</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        chore
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">27. 08. 25 02:13</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      chore: auto-update README (WakaTime + GitHub)
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>github-actions[bot]</strong> • 
+      <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/aa7c016893d97813059029c49b19e7eee01f31df" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>
+<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">🔧</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        chore
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">27. 08. 25 01:45</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      chore: auto-update README (WakaTime + GitHub)
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>github-actions[bot]</strong> • 
+      <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/b219fba30634f21b6fde50d72b21636fe90cbd2a" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>
+<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">📝</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        commit
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">27. 08. 25 01:44</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      Update update-readme.yml
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>coffeeRequired</strong> • 
+      <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/3125cfb07fdee518dbad74344e6d1fc01d8d3d63" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>
+<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">🔧</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        chore
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">27. 08. 25 01:41</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      chore: auto-update README (WakaTime + GitHub)
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>github-actions[bot]</strong> • 
+      <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/cb5464d7358eb8fe6b0dbf9014cb393a4fb89130" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>
+<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
+  <div style="margin-right: 16px; font-size: 1.5em;">🔧</div>
+  <div style="flex: 1; min-width: 0;">
+    <div style="display: flex; align-items: center; margin-bottom: 6px;">
+      <span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
+        chore
+      </span>
+      <span style="font-size: 0.8em; color: #9ca3af;">26. 08. 25 22:27</span>
+    </div>
+    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
+      chore: auto-update README (WakaTime + GitHub)
+    </div>
+    <div style="font-size: 0.8em; color: #6b7280;">
+      by <strong>github-actions[bot]</strong> • 
+      <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/5910ebb7ce91ca3c98e235e2349c4268e504a046" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
+    </div>
+  </div>
+</div>
+</div>
 <!-- COMMITS-END -->
 
 ---
