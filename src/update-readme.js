@@ -420,27 +420,21 @@ async function getTopRepos(limit = 5) {
         else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
         else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
 
-        // Vytvoření ultra-moderní karty s glassmorphism efektem
-        return `<div style="display: inline-block; margin: 8px; padding: 20px; border-radius: 16px; background: rgba(31, 41, 55, 0.2); backdrop-filter: blur(8px); min-width: 300px; text-align: left; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); border: 1px solid rgba(255, 255, 255, 0.1);">
-  <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-    <img src="${iconSrc}" alt="${language}" height="32" style="margin-right: 15px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);" />
-    <div style="flex: 1;">
-      <h3 style="margin: 0 0 8px 0; font-size: 1.2em; font-weight: 600;">
-        <a href="${r.html_url}" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">${r.name}</a>
-      </h3>
-      <p style="margin: 0; font-size: 0.95em; color: #b0b8c4; line-height: 1.4;">
-        ${r.description || 'No description'}
-      </p>
-    </div>
+        // Vytvoření GitHub-kompatibilní karty
+        return `<div style="display: inline-block; margin: 8px; padding: 16px; border-radius: 8px; background: #1f2937; border: 1px solid #374151; min-width: 280px; text-align: left;">
+  <div style="margin-bottom: 12px;">
+    <img src="${iconSrc}" alt="${language}" height="24" style="margin-right: 8px; vertical-align: middle;" />
+    <strong><a href="${r.html_url}" style="color: #60a5fa; text-decoration: none;">${r.name}</a></strong>
   </div>
-  <div style="display: flex; justify-content: space-between; align-items: center;">
-    <div style="font-size: 0.9em; color: #b0b8c4; margin-top: 10px;">
-      ${stats.join(' • ')}
-    </div>
-    <span style="background: ${badgeColor}; color: white; padding: 3px 7px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);">
-      ${r.language || 'Other'}
-    </span>
+  <div style="font-size: 14px; color: #9ca3af; margin-bottom: 8px; line-height: 1.4;">
+    ${r.description || 'No description'}
   </div>
+  <div style="font-size: 12px; color: #6b7280; margin-bottom: 8px;">
+    ${stats.join(' • ')}
+  </div>
+  <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold;">
+    ${r.language || 'Other'}
+  </span>
 </div>`;
     });
 
@@ -513,27 +507,24 @@ async function getRecentCommits(limit = 5) {
             // Zkrácení zprávy pokud je příliš dlouhá
             const shortMsg = msg.length > 60 ? msg.substring(0, 60) + '...' : msg;
 
-            return `<div style="display: flex; align-items: center; margin: 8px 0; padding: 16px; border-radius: 12px; background: rgba(31, 41, 55, 0.15); backdrop-filter: blur(8px); border: 1px solid rgba(255, 255, 255, 0.05); box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);">
-  <div style="margin-right: 16px; font-size: 1.5em;">${emoji}</div>
-  <div style="flex: 1; min-width: 0;">
-    <div style="display: flex; align-items: center; margin-bottom: 6px;">
-      <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 9999px; font-size: 0.7em; font-weight: normal; margin-right: 8px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);">
-        ${badgeText}
-      </span>
-      <span style="font-size: 0.8em; color: #9ca3af;">${date}</span>
-    </div>
-    <div style="font-size: 0.95em; color: #e5e7eb; margin-bottom: 4px; line-height: 1.4;">
-      ${shortMsg}
-    </div>
-    <div style="font-size: 0.8em; color: #6b7280;">
-      by <strong>${author}</strong> • 
-      <a href="${c.html_url}" style="color: #60a5fa; text-decoration: none; transition: color 0.2s ease;">view commit</a>
-    </div>
+            return `<div style="margin: 8px 0; padding: 12px; border-radius: 6px; background: #1f2937; border: 1px solid #374151;">
+  <div style="margin-bottom: 8px;">
+    <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 4px; font-size: 11px; font-weight: bold; margin-right: 8px;">
+      ${badgeText}
+    </span>
+    <span style="font-size: 12px; color: #9ca3af;">${date}</span>
+  </div>
+  <div style="font-size: 14px; color: #e5e7eb; margin-bottom: 6px; line-height: 1.4;">
+    ${emoji} ${shortMsg}
+  </div>
+  <div style="font-size: 12px; color: #6b7280;">
+    by <strong>${author}</strong> • 
+    <a href="${c.html_url}" style="color: #60a5fa; text-decoration: none;">view commit</a>
   </div>
 </div>`;
         });
 
-        const timelineHtml = `<div style="max-width: 600px; margin: 0 auto;">
+        const timelineHtml = `<div style="max-width: 500px;">
 ${commitCards.join('\n')}
 </div>`;
 
