@@ -353,12 +353,14 @@ function formatLanguagesData(languagesData) {
     console.log('=== END DEBUG ===\n');
 
     const data = languagesData?.data || [];
-    const langs = Array.isArray(data) 
-        ? data.map(l => ({
-            raw: l.name,
-            slug: toSkillSlug(l.name),
-            percent: Number.isFinite(l.percent) ? l.percent : 0,
-        })).sort((a, b) => b.percent - a.percent)
+    const langs = Array.isArray(data)
+        ? data
+              .map(l => ({
+                  raw: l.name,
+                  slug: toSkillSlug(l.name),
+                  percent: Number.isFinite(l.percent) ? l.percent : 0,
+              }))
+              .sort((a, b) => b.percent - a.percent)
         : [];
 
     if (langs.length === 0) return 'No languages';
@@ -560,6 +562,8 @@ function codeBlock(content) {
         info(`WakaTime: daily=${dailyCount} záznamů, langs=${langsCount} jazyků`);
         return res;
     });
+
+    console.log(langs);
 
     // 3) Výpočty grafů
     const { ascii, sparkSVG, allTimeLine } = await timed('Generuji grafy a summary', async () => {
