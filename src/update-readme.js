@@ -420,27 +420,11 @@ async function getTopRepos(limit = 5) {
         else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
         else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
 
-        // Vytvoření jednoduché GitHub-kompatibilní karty
-        return `<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="${iconSrc}" alt="${language}" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="${r.html_url}" style="color: #58a6ff;">${r.name}</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    ${r.description || 'No description'}
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    ${stats.join(' • ')}
-  </div>
-  <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    ${r.language || 'Other'}
-  </span>
-</div>`;
+        // Vytvoření jednoduché Markdown karty
+        return `**${r.name}** ${r.description ? `\n> ${r.description}` : ''}\n\`${stats.join(' • ')}\` • \`${r.language || 'Other'}\`\n\n`;
     });
 
-    const cardsHtml = `<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
-${repoCards.join('\n')}
-</div>`;
+    const cardsHtml = repoCards.join('');
 
     return {
         table: cardsHtml,
@@ -507,26 +491,10 @@ async function getRecentCommits(limit = 5) {
             // Zkrácení zprávy pokud je příliš dlouhá
             const shortMsg = msg.length > 60 ? msg.substring(0, 60) + '...' : msg;
 
-            return `<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: ${badgeColor}; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      ${badgeText}
-    </span>
-    <span style="color: #656d76; font-size: 12px;">${date}</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    ${emoji} ${shortMsg}
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>${author}</strong> • 
-    <a href="${c.html_url}" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>`;
+            return `**${emoji} ${badgeText}** (${date})\n> ${shortMsg}\nby **${author}** • [view commit](${c.html_url})\n\n`;
         });
 
-        const timelineHtml = `<div>
-${commitCards.join('\n')}
-</div>`;
+        const timelineHtml = commitCards.join('');
 
         return {
             lines: [timelineHtml],
@@ -534,7 +502,7 @@ ${commitCards.join('\n')}
         };
     } catch {
         return {
-            lines: ['<div style="text-align: center; color: #6b7280; font-style: italic;">(no recent commits found in profile repo)</div>'],
+            lines: ['*(no recent commits found in profile repo)*'],
             count: 0,
         };
     }

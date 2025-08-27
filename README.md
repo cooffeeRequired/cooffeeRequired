@@ -98,165 +98,53 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📦 Top Repos
 
 <!-- REPOS-START -->
-<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;">
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="https://skillicons.dev/icons?i=java" alt="java" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="https://github.com/cooffeeRequired/skJson" style="color: #58a6ff;">skJson</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    About Script Addon for using Json (Gson) in script
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    ⭐ 21 • 🍴 4 • 📅 14. 08. 25
-  </div>
-  <span style="background: #f59e0b; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    Java
-  </span>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="https://skillicons.dev/icons?i=kotlin" alt="kotlin" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="https://github.com/cooffeeRequired/SkriptMail" style="color: #58a6ff;">SkriptMail</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    The Simple Skript Mailer using Kotlin JDK
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    ⭐ 4 • 📅 10. 05. 25
-  </div>
-  <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    Kotlin
-  </span>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="https://skillicons.dev/icons?i=brackets-yellow" alt="other" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="https://github.com/cooffeeRequired/Jsonic" style="color: #58a6ff;">Jsonic</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    ⭐ 1 • 📅 16. 08. 25
-  </div>
-  <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    Other
-  </span>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="https://skillicons.dev/icons?i=java" alt="java" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="https://github.com/cooffeeRequired/skGoat" style="color: #58a6ff;">skGoat</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    Addon that fills in missing syntax, and improves working with inventories
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    ⭐ 1 • 🍴 1 • 📅 06. 05. 25
-  </div>
-  <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    Java
-  </span>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 16px; margin: 8px; display: inline-block; min-width: 250px; background: #0d1117;">
-  <div style="margin-bottom: 8px;">
-    <img src="https://skillicons.dev/icons?i=js" alt="javascript" height="20" style="margin-right: 6px; vertical-align: middle;" />
-    <strong><a href="https://github.com/cooffeeRequired/cooffeeRequired" style="color: #58a6ff;">cooffeeRequired</a></strong>
-  </div>
-  <div style="color: #8b949e; font-size: 14px; margin-bottom: 8px;">
-    My page
-  </div>
-  <div style="color: #656d76; font-size: 12px; margin-bottom: 8px;">
-    📅 27. 08. 25
-  </div>
-  <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px;">
-    JavaScript
-  </span>
-</div>
-</div>
+**skJson** 
+> About Script Addon for using Json (Gson) in script
+`⭐ 21 • 🍴 4 • 📅 14. 08. 25` • `Java`
+
+**SkriptMail** 
+> The Simple Skript Mailer using Kotlin JDK
+`⭐ 4 • 📅 10. 05. 25` • `Kotlin`
+
+**Jsonic** 
+> Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
+`⭐ 1 • 📅 16. 08. 25` • `Other`
+
+**skGoat** 
+> Addon that fills in missing syntax, and improves working with inventories
+`⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
+
+**cooffeeRequired** 
+> My page
+`📅 27. 08. 25` • `JavaScript`
+
+
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-<div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      commit
-    </span>
-    <span style="color: #656d76; font-size: 12px;">27. 08. 25 02:38</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    📝 update
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>Jiří Grygerek</strong> • 
-    <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/482aea70d846cddd75e9b10b4ea76a81b838681b" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      commit
-    </span>
-    <span style="color: #656d76; font-size: 12px;">27. 08. 25 02:36</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    📝 update
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>Jiří Grygerek</strong> • 
-    <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/0003c9673f1dc2430d429de0e9c71940618db254" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      commit
-    </span>
-    <span style="color: #656d76; font-size: 12px;">27. 08. 25 02:36</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    📝 update
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>Jiří Grygerek</strong> • 
-    <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/31a81654ab9974bc44aa6ea8656842a30bc65fa8" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      commit
-    </span>
-    <span style="color: #656d76; font-size: 12px;">27. 08. 25 02:35</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    📝 update
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>Jiří Grygerek</strong> • 
-    <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/85e134797563a85c651d0d036b8712933d6b0f34" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>
-<div style="border: 1px solid #30363d; border-radius: 6px; padding: 12px; margin: 8px 0; background: #0d1117;">
-  <div style="margin-bottom: 6px;">
-    <span style="background: #6b7280; color: white; padding: 2px 6px; border-radius: 3px; font-size: 11px; margin-right: 8px;">
-      commit
-    </span>
-    <span style="color: #656d76; font-size: 12px;">27. 08. 25 02:33</span>
-  </div>
-  <div style="color: #e6edf3; font-size: 14px; margin-bottom: 6px;">
-    📝 updae
-  </div>
-  <div style="color: #656d76; font-size: 12px;">
-    by <strong>Jiří Grygerek</strong> • 
-    <a href="https://github.com/cooffeeRequired/cooffeeRequired/commit/4f2fffcbf851ed1dee3acf9c0244830594ccb307" style="color: #58a6ff;">view commit</a>
-  </div>
-</div>
-</div>
+**📝 commit** (27. 08. 25 02:40)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/7706c4282b92401f423b42258119548b5955a7c7)
+
+**📝 commit** (27. 08. 25 02:38)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/482aea70d846cddd75e9b10b4ea76a81b838681b)
+
+**📝 commit** (27. 08. 25 02:36)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/0003c9673f1dc2430d429de0e9c71940618db254)
+
+**📝 commit** (27. 08. 25 02:36)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/31a81654ab9974bc44aa6ea8656842a30bc65fa8)
+
+**📝 commit** (27. 08. 25 02:35)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/85e134797563a85c651d0d036b8712933d6b0f34)
+
+
 <!-- COMMITS-END -->
 
 ---
