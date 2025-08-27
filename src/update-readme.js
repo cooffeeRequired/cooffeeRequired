@@ -377,7 +377,9 @@ function formatLanguagesData(languagesData) {
             // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
             const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
 
-            languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="25" /> \`${l.percent.toFixed(1)}%\``);
+            languageItems.push(
+                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="25" /> <span style="font-size: 12px;">${l.percent.toFixed(1)}%</span>`
+            );
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
             languageItems.push(`**${l.raw}**<br><span style="${colorClass}">${l.percent.toFixed(1)}%</span>`);
