@@ -337,19 +337,14 @@ function toSkillSlug(wakaName) {
 // Jazyky → používá pouze lokální ikony z icon-language/ + procenta
 function formatLanguagesData(languagesData) {
     console.log('\n=== DEBUG: Language Processing ===');
-    const debugData = languagesData?.data || [];
-    if (Array.isArray(debugData)) {
-        debugData.forEach(l => {
-            const original = l.name;
-            const slug = toSkillSlug(l.name);
-            const iconPath = `icon-language/${slug}.png`;
-            const hasLocalIcon = fs.existsSync(iconPath);
-            const source = slug ? (hasLocalIcon ? 'LOCAL (fallback)' : 'SKILLICONS (primary)') : 'TEXT';
-            console.log(`${original} → ${slug} → ${iconPath} (${source})`);
-        });
-    } else {
-        console.log('No language data available');
-    }
+    (languagesData?.data || []).forEach(l => {
+        const original = l.name;
+        const slug = toSkillSlug(l.name);
+        const iconPath = `icon-language/${slug}.png`;
+        const hasLocalIcon = fs.existsSync(iconPath);
+        const source = slug ? (hasLocalIcon ? 'LOCAL (fallback)' : 'SKILLICONS (primary)') : 'TEXT';
+        console.log(`${original} → ${slug} → ${iconPath} (${source})`);
+    });
     console.log('=== END DEBUG ===\n');
 
     const langs = (languagesData?.data || [])
@@ -382,7 +377,7 @@ function formatLanguagesData(languagesData) {
             else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
 
             languageItems.push(
-                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /><br><span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`
+                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /> <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`
             );
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
@@ -393,7 +388,7 @@ function formatLanguagesData(languagesData) {
             else if (l.percent >= 5) colorClass = 'color: #f59e0b'; // oranžová pro nižší procenta
             else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
 
-            languageItems.push(`**${l.raw}**<br><span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`);
+            languageItems.push(`**${l.raw}**: <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`);
         }
     }
 
