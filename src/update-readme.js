@@ -377,7 +377,7 @@ function formatLanguagesData(languagesData) {
             else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
 
             languageItems.push(
-                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /> <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`
+                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="32" /> <span style="${colorClass}">${l.percent.toFixed(1)}%</span>`
             );
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
