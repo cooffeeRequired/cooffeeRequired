@@ -55,53 +55,13 @@ No languages
 ## 📦 Top Repos
 
 <!-- REPOS-START -->
-**skJson** 
-> About Script Addon for using Json (Gson) in script
-`⭐ 21 • 🍴 4 • 📅 14. 08. 25` • `Java`
-
-**SkriptMail** 
-> The Simple Skript Mailer using Kotlin JDK
-`⭐ 4 • 📅 10. 05. 25` • `Kotlin`
-
-**Jsonic** 
-> Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
-`⭐ 1 • 📅 16. 08. 25` • `Other`
-
-**skGoat** 
-> Addon that fills in missing syntax, and improves working with inventories
-`⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
-
-**cooffeeRequired** 
-> My page
-`📅 27. 08. 25` • `JavaScript`
-
-
+*(GitHub API není dostupné)*
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-**📝 commit** (27. 08. 25 03:04)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f78265feea08c29ae432e4117c305d424e574f73)
-
-**📝 commit** (27. 08. 25 03:03)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/233f3fa71eb4775c1e3fd2da43d7d48297e83049)
-
-**📝 commit** (27. 08. 25 03:02)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ae9aa7e6563d5c8acbd74310173680c612d6dc99)
-
-**📝 commit** (27. 08. 25 03:02)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/4459009a77c09b7c625c3f1bf790257ea7ba334a)
-
-**📝 commit** (27. 08. 25 03:02)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/62d5e1d887e7efc6ecfc45f5b74e75bfb9ee5fca)
-
-
+*(no recent commits found in profile repo)*
 <!-- COMMITS-END -->
 
 ---

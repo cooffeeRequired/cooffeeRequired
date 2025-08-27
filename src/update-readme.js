@@ -398,38 +398,47 @@ function formatLanguagesData(languagesData) {
 
 // Top repos → moderní design s ikonami a více informacemi
 async function getTopRepos(limit = 5) {
-    const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
-    repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
+    try {
+        const repos = await fetchJSON(`https://api.github.com/users/${USERNAME}/repos?per_page=100&sort=updated`);
+        repos.sort((a, b) => b.stargazers_count - a.stargazers_count);
 
-    const topRepos = repos.slice(0, limit);
-    const repoCards = topRepos.map(r => {
-        // Určení ikony podle jazyka - vždy skillicons.dev
-        const language = r.language?.toLowerCase() || 'other';
-        const iconSlug = toSkillSlug(language) || 'brackets-yellow';
-        const iconSrc = `https://skillicons.dev/icons?i=${iconSlug}`;
+        const topRepos = repos.slice(0, limit);
+        const repoCards = topRepos.map(r => {
+            // Určení ikony podle jazyka - vždy skillicons.dev
+            const language = r.language?.toLowerCase() || 'other';
+            const iconSlug = toSkillSlug(language) || 'brackets-yellow';
+            const iconSrc = `https://skillicons.dev/icons?i=${iconSlug}`;
 
-        // Formátování dat na jeden řádek
-        const stats = [];
-        if (r.stargazers_count > 0) stats.push(`⭐ ${r.stargazers_count}`);
-        if (r.forks_count > 0) stats.push(`🍴 ${r.forks_count}`);
-        const lastCommit = new Date(r.pushed_at).toLocaleDateString('cs-CZ', {
-            day: '2-digit',
-            month: '2-digit',
-            year: '2-digit',
+            // Formátování dat na jeden řádek
+            const stats = [];
+            if (r.stargazers_count > 0) stats.push(`⭐ ${r.stargazers_count}`);
+            if (r.forks_count > 0) stats.push(`🍴 ${r.forks_count}`);
+            const lastCommit = new Date(r.pushed_at).toLocaleDateString('cs-CZ', {
+                day: '2-digit',
+                month: '2-digit',
+                year: '2-digit',
+            });
+            stats.push(`📅 ${lastCommit}`);
+
+            // Vytvoření jednoduché Markdown karty
+            return `**${r.name}** ${r.description ? `\n> ${r.description}` : ''}\n\`${stats.join(' • ')}\` • \`${r.language || 'Other'}\`\n\n`;
         });
-        stats.push(`📅 ${lastCommit}`);
 
-        // Vytvoření jednoduché Markdown karty
-        return `**${r.name}** ${r.description ? `\n> ${r.description}` : ''}\n\`${stats.join(' • ')}\` • \`${r.language || 'Other'}\`\n\n`;
-    });
+        const cardsHtml = repoCards.join('');
 
-    const cardsHtml = repoCards.join('');
-
-    return {
-        table: cardsHtml,
-        total: repos.length,
-        used: Math.min(limit, repos.length),
-    };
+        return {
+            table: cardsHtml,
+            total: repos.length,
+            used: Math.min(limit, repos.length),
+        };
+    } catch (error) {
+        warn(`GitHub API chyba: ${error.message}`);
+        return {
+            table: '*(GitHub API není dostupné)*',
+            total: 0,
+            used: 0,
+        };
+    }
 }
 
 // Commits → moderní timeline s detaily
@@ -552,6 +561,10 @@ function fetchWakaTimeAPI(endpoint) {
         throw new Error('WAKATIME_API_KEY není nastaven v prostředí');
     }
 
+    if (!WAKATIME.apiKey.startsWith('waka_')) {
+        throw new Error('WAKATIME_API_KEY musí začínat s "waka_"');
+    }
+
     const url = `${WAKATIME.baseUrl}${endpoint}`;
     return fetchJSON(url, {
         headers: {
@@ -594,6 +607,12 @@ async function getWakaTimeLanguages() {
     hr();
     info(`Spuštěno pro uživatele: ${USERNAME}${DRY_RUN ? ' (dry-run)' : ''}${VERBOSE ? ' (verbose)' : ''}`);
     info(`WakaTime API: ${WAKATIME.apiKey ? 'připojeno' : 'není nastaveno'}`);
+    if (WAKATIME.apiKey && !WAKATIME.apiKey.startsWith('waka_')) {
+        warn('WAKATIME_API_KEY nezačíná s "waka_" - zkontrolujte správnost klíče');
+    }
+    if (WAKATIME.apiKey) {
+        info(`API klíč: ${WAKATIME.apiKey.substring(0, 10)}...`);
+    }
     hr();
 
     // 1) Kontrola README
