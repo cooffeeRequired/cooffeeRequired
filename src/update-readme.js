@@ -403,12 +403,6 @@ async function getTopRepos(limit = 5) {
         });
         stats.push(`📅 ${lastCommit}`);
 
-        // Určení barvy podle popularity
-        let badgeColor = '#6b7280'; // šedá
-        if (r.stargazers_count >= 100) badgeColor = '#10b981'; // zelená
-        else if (r.stargazers_count >= 50) badgeColor = '#3b82f6'; // modrá
-        else if (r.stargazers_count >= 10) badgeColor = '#f59e0b'; // oranžová
-
         // Vytvoření jednoduché Markdown karty
         return `**${r.name}** ${r.description ? `\n> ${r.description}` : ''}\n\`${stats.join(' • ')}\` • \`${r.language || 'Other'}\`\n\n`;
     });
@@ -438,42 +432,33 @@ async function getRecentCommits(limit = 5) {
                 minute: '2-digit',
             });
 
-            // Určení emoji a barvy podle typu commitu
+            // Určení emoji podle typu commitu
             let emoji = '📝';
-            let badgeColor = '#6b7280';
             let badgeText = 'commit';
 
             if (msg.startsWith('feat')) {
                 emoji = '✨';
-                badgeColor = '#10b981';
                 badgeText = 'feature';
             } else if (msg.startsWith('fix')) {
                 emoji = '🐛';
-                badgeColor = '#ef4444';
                 badgeText = 'fix';
             } else if (msg.startsWith('chore')) {
                 emoji = '🔧';
-                badgeColor = '#f59e0b';
                 badgeText = 'chore';
             } else if (msg.startsWith('docs')) {
                 emoji = '📚';
-                badgeColor = '#3b82f6';
                 badgeText = 'docs';
             } else if (msg.startsWith('style')) {
                 emoji = '🎨';
-                badgeColor = '#8b5cf6';
                 badgeText = 'style';
             } else if (msg.startsWith('refactor')) {
                 emoji = '♻️';
-                badgeColor = '#06b6d4';
                 badgeText = 'refactor';
             } else if (msg.startsWith('test')) {
                 emoji = '🧪';
-                badgeColor = '#84cc16';
                 badgeText = 'test';
             } else if (msg.startsWith('perf')) {
                 emoji = '⚡';
-                badgeColor = '#f97316';
                 badgeText = 'perf';
             }
 
