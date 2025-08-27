@@ -2,7 +2,7 @@ name: Update README (WakaTime + GitHub)
 
 on:
   schedule:
-    - cron: "15 */6 * * *"
+    - cron: "1 */1 * * *"   # každých 1 hodin v :15
   workflow_dispatch:
 
 jobs:
@@ -10,19 +10,46 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      # dostupné pro všechny kroky – skript si je načte z process.env
+      WAKA_TIME_DAILY_URL: ${{ secrets.WAKA_TIME_DAILY_URL }}
+      WAKA_TIME_ALLTIME_URL: ${{ secrets.WAKA_TIME_ALLTIME_URL }}
+      WAKA_TIME_LANGS_URL: ${{ secrets.WAKA_TIME_LANGS_URL }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: 20
-        env:
-          WAKA_TIME_DAILY_URL: ${{ secrets.WAKA_TIME_DAILY_URL }}
-          WAKA_TIME_ALLTIME_URL: ${{ secrets.WAKA_TIME_ALLTIME_URL }}
-          WAKA_TIME_LANGS_URL: ${{ secrets.WAKA_TIME_LANGS_URL }}
-          LANG_ICON_BASE: ${{ vars.LANG_ICON_BASE }}
-      - run: |
+
+      - name: Echo Waka env (masked)
+        run: |
+          echo "DAILY set? ${{ secrets.WAKA_TIME_DAILY_URL != '' }}"
+          echo "ALLTIME set? ${{ secrets.WAKA_TIME_ALLTIME_URL != '' }}"
+          echo "LANGS set? ${{ secrets.WAKA_TIME_LANGS_URL != '' }}"
+
+      # (volitelné) pokud používáte dotenv v update-readme.js
+      # - run: npm ci
+
+      - name: Run updater
+        run: node src/update-readme.js --verbose
+
+      - name: Configure Git
+        run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -A
-          git commit -m "chore: auto-update README (WakaTime + GitHub)" || echo "no changes"
-          git push
+
+      - name: Commit & push if changed
+        run: |
+          if ! git diff --quiet README.md; then
+            git add README.md
+            git commit -m "chore: auto-update README (WakaTime + GitHub)"
+            git push
+            echo "Pushed README changes."
+          else
+            echo "No README changes."
+          fi

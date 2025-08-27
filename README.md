@@ -33,6 +33,7 @@
 </p>
 
 <!-- WAKATIME-START -->
+
 **All-time coding:** N/A
 
 <details><summary>📊 Posledních 7 dní</summary>
@@ -46,6 +47,7 @@ Pon │ 0 secs       ⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜�
 Úte │ 5 hrs 59 mins 🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩🟩
 Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ```
+
 </details>
 <!-- WAKATIME-END -->
 
