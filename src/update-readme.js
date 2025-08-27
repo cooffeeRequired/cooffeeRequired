@@ -337,14 +337,19 @@ function toSkillSlug(wakaName) {
 // Jazyky → používá pouze lokální ikony z icon-language/ + procenta
 function formatLanguagesData(languagesData) {
     console.log('\n=== DEBUG: Language Processing ===');
-    (languagesData?.data || []).forEach(l => {
-        const original = l.name;
-        const slug = toSkillSlug(l.name);
-        const iconPath = `icon-language/${slug}.png`;
-        const hasLocalIcon = fs.existsSync(iconPath);
-        const source = slug ? (hasLocalIcon ? 'LOCAL (fallback)' : 'SKILLICONS (primary)') : 'TEXT';
-        console.log(`${original} → ${slug} → ${iconPath} (${source})`);
-    });
+    const debugData = languagesData?.data || [];
+    if (Array.isArray(debugData)) {
+        debugData.forEach(l => {
+            const original = l.name;
+            const slug = toSkillSlug(l.name);
+            const iconPath = `icon-language/${slug}.png`;
+            const hasLocalIcon = fs.existsSync(iconPath);
+            const source = slug ? (hasLocalIcon ? 'LOCAL (fallback)' : 'SKILLICONS (primary)') : 'TEXT';
+            console.log(`${original} → ${slug} → ${iconPath} (${source})`);
+        });
+    } else {
+        console.log('No language data available');
+    }
     console.log('=== END DEBUG ===\n');
 
     const langs = (languagesData?.data || [])
