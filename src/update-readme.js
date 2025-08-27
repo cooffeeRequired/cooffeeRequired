@@ -369,15 +369,15 @@ function formatLanguagesData(languagesData) {
             // Preferuj skillicons.dev, ale pokud lokální soubor existuje, použij ho jako fallback
             const imgSrc = hasLocalIcon ? iconPath : `https://skillicons.dev/icons?i=${l.slug}`;
 
-            languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="24" /> \`${l.percent.toFixed(1)}%\``);
+            languageItems.push(`<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /> \`${l.percent.toFixed(1)}%\``);
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
             languageItems.push(`**${l.raw}**: \`${l.percent.toFixed(1)}%\``);
         }
     }
 
-    // Spojit všechny jazyky s konzistentními mezerami
-    return languageItems.join(' &nbsp;&nbsp; ');
+    // Spojit všechny jazyky s konzistentními mezerami a vycentrovat
+    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
 }
 
 // Top repos → moderní design s ikonami a více informacemi
