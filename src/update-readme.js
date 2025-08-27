@@ -377,7 +377,7 @@ function formatLanguagesData(languagesData) {
             else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
 
             languageItems.push(
-                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /> <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`
+                `<img src="${imgSrc}" alt="${l.raw}" title="${l.raw} — ${l.percent.toFixed(1)}%" height="42" /><br><span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`
             );
         } else {
             // Pokud nemáme slug, zobrazíme pouze text
@@ -388,12 +388,12 @@ function formatLanguagesData(languagesData) {
             else if (l.percent >= 5) colorClass = 'color: #f59e0b'; // oranžová pro nižší procenta
             else colorClass = 'color: #6b7280'; // šedá pro velmi nízká procenta
 
-            languageItems.push(`**${l.raw}**: <span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`);
+            languageItems.push(`**${l.raw}**<br><span style="${colorClass}">\`${l.percent.toFixed(1)}%\`</span>`);
         }
     }
 
     // Spojit všechny jazyky s konzistentními mezerami a vycentrovat
-    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
+    return `<p align="center">${languageItems.join(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ')}</p>`;
 }
 
 // Top repos → moderní design s ikonami a více informacemi

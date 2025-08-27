@@ -51,7 +51,7 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## Languages
 
 <!-- LANGS-START -->
-<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="42" /> <span style="color: #10b981">`48.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="42" /> <span style="color: #10b981">`37.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="42" /> <span style="color: #f59e0b">`6.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="42" /> <span style="color: #6b7280">`3.3%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="42" /> <span style="color: #6b7280">`1.6%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="42" /> <span style="color: #6b7280">`1.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="42" /> <span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="42" /> <span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="42" /> <span style="color: #6b7280">`0.2%`</span></p>
+<p align="center"><img src="icon-language/php.png" alt="PHP" title="PHP — 48.1%" height="42" /><br><span style="color: #10b981">`48.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/js.png" alt="JavaScript" title="JavaScript — 37.4%" height="42" /><br><span style="color: #10b981">`37.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=mysql" alt="SQL" title="SQL — 6.4%" height="42" /><br><span style="color: #f59e0b">`6.4%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=html" alt="HTML" title="HTML — 3.3%" height="42" /><br><span style="color: #6b7280">`3.3%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/brackets-yellow.png" alt="Other" title="Other — 1.6%" height="42" /><br><span style="color: #6b7280">`1.6%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=bash" alt="Bash" title="Bash — 1.1%" height="42" /><br><span style="color: #6b7280">`1.1%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/git.png" alt="Git Config" title="Git Config — 1.0%" height="42" /><br><span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="icon-language/json.png" alt="JSON" title="JSON — 1.0%" height="42" /><br><span style="color: #6b7280">`1.0%`</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <img src="https://skillicons.dev/icons?i=md" alt="Markdown" title="Markdown — 0.2%" height="42" /><br><span style="color: #6b7280">`0.2%`</span></p>
 <!-- LANGS-END -->
 
 <!-- SPARK-START -->
@@ -96,6 +96,14 @@ Stř │ 1 hr 34 mins 🟩🟩🟩🟩🟩🟩🟨⬜⬜⬜⬜⬜⬜⬜⬜⬜⬜
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**📝 commit** (27. 08. 25 02:51)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/118e3980ee333265acdd30e5775172ec2195ce85)
+
+**📝 commit** (27. 08. 25 02:50)
+> update
+by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6c3c199b7832b564b56257974c1704a2ed337293)
+
 **📝 commit** (27. 08. 25 02:49)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6bc7784433523140017fa7b63721e98d0702b02e)
@@ -107,14 +115,6 @@ by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/coof
 **📝 commit** (27. 08. 25 02:47)
 > update
 by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d5acc0074d1e1dbeb0c0e81112c00a865621f13e)
-
-**📝 commit** (27. 08. 25 02:45)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f540fa4c989d518990f564be1e9aeb59febea55f)
-
-**📝 commit** (27. 08. 25 02:44)
-> update
-by **Jiří Grygerek** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/77fe4ccd09a28ddd0ac0710329b2a44818d084dd)
 
 
 <!-- COMMITS-END -->
