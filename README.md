@@ -73,7 +73,7 @@ No languages
 
 **cooffeeRequired** 
 > My page
-`📅 22. 11. 25` • `JavaScript`
+`📅 23. 11. 25` • `JavaScript`
 
 
 <!-- REPOS-END -->
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (22. 11. 25 23:03)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/c9b220f2dbfff11e00a3dc8c65e095b16c50a64b)
+
 **🔧 chore** (22. 11. 25 22:03)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6147242b58e5c159c872ac8b525c536126ba4440)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (22. 11. 25 19:03)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d839db99c220ce6c1cb40f84a45f2b8e85bbf2d3)
-
-**🔧 chore** (22. 11. 25 18:04)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/944e70f6fc35e4f2ae99e8e8756eccad657f89c9)
 
 
 <!-- COMMITS-END -->
