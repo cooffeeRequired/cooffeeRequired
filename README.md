@@ -55,13 +55,53 @@ No languages
 ## 📦 Top Repos
 
 <!-- REPOS-START -->
-*(GitHub API není dostupné)*
+**skJson** 
+> About Script Addon for using Json (Gson) in script
+`⭐ 21 • 🍴 5 • 📅 13. 08. 25` • `Java`
+
+**SkriptMail** 
+> The Simple Skript Mailer using Kotlin JDK
+`⭐ 4 • 📅 10. 05. 25` • `Kotlin`
+
+**Jsonic** 
+> Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
+`⭐ 1 • 📅 16. 08. 25` • `Other`
+
+**skGoat** 
+> Addon that fills in missing syntax, and improves working with inventories
+`⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
+
+**cooffeeRequired** 
+> My page
+`📅 05. 03. 26` • `JavaScript`
+
+
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-*(no recent commits found in profile repo)*
+**🔧 chore** (05. 03. 26 07:17)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/8596b8f4baac182aab03e53b84f7bbee29cf7597)
+
+**🔧 chore** (05. 03. 26 06:16)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/c9bc03ae5342e090e7dac1e117593e4cbcce2a23)
+
+**🔧 chore** (05. 03. 26 05:21)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ed04df95b2e494e024a508f23b5a231633ef2e32)
+
+**🔧 chore** (05. 03. 26 04:33)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6359fbceb42e956cee47ca13931515ea0342d06f)
+
+**🔧 chore** (05. 03. 26 03:49)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/27661c4dad9467090d4a2f1ad4d71056b2ee8405)
+
+
 <!-- COMMITS-END -->
 
 ---
