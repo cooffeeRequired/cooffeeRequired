@@ -71,9 +71,8 @@ No languages
 > Addon that fills in missing syntax, and improves working with inventories
 `⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
 
-**cooffeeRequired** 
-> My page
-`📅 29. 05. 26` • `JavaScript`
+**LDP---League-of-Legends-Day-Performance** 
+`📅 29. 05. 26` • `Vue`
 
 
 <!-- REPOS-END -->
@@ -81,6 +80,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (29. 05. 26 15:04)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/cce7fbd0ffcde6391cf3b3b7111e0d0fe216af48)
+
 **🔧 chore** (29. 05. 26 13:03)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/52d2f1b47d7a278e0f2acf01b2df3ab2a281b351)
@@ -96,10 +99,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (29. 05. 26 07:19)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/39dbace6f78c0138764c4020397d0c029194e37c)
-
-**🔧 chore** (29. 05. 26 05:27)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/6136aa71e8345b6bb3b8f1476a49010445480107)
 
 
 <!-- COMMITS-END -->
