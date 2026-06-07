@@ -57,7 +57,7 @@ No languages
 <!-- REPOS-START -->
 **skJson** 
 > About Script Addon for using Json (Gson) in script
-`⭐ 22 • 🍴 5 • 📅 26. 05. 26` • `Java`
+`⭐ 21 • 🍴 5 • 📅 26. 05. 26` • `Java`
 
 **SkriptMail** 
 > The Simple Skript Mailer using Kotlin JDK
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (07. 06. 26 00:42)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/7118f67f5f3c9e59b7678035a166aea82bd7036f)
+
 **🔧 chore** (06. 06. 26 23:22)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/7ef7a0182ab89e0f2011f97f2a0197abf661174e)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (06. 06. 26 20:25)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/9eedabfb77a094d86082f57d2e055dcc2acff2e3)
-
-**🔧 chore** (06. 06. 26 19:30)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/8e351a45ca210177acacfd85be7c74e5f271f8b5)
 
 
 <!-- COMMITS-END -->
