@@ -71,9 +71,9 @@ No languages
 > Addon that fills in missing syntax, and improves working with inventories
 `⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
 
-**terax-ai** 
-> Lightweight (7MB) Terminal-first AI-native dev workspace
-`📅 08. 06. 26` • `Other`
+**cooffeeRequired** 
+> My page
+`📅 08. 06. 26` • `JavaScript`
 
 
 <!-- REPOS-END -->
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (08. 06. 26 18:49)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/5f75d067f38cc7a947a332a7b3075ecdf2be8484)
+
 **🔧 chore** (08. 06. 26 17:05)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/d266f517cd4a1d237567c9ec9beff7066dff86ad)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (08. 06. 26 11:36)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/8c447b6bbeca0cdf3b13bf01125485bb6f67e410)
-
-**🔧 chore** (08. 06. 26 09:35)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/b846dd1bc9d6ce21e239714c7408947556141006)
 
 
 <!-- COMMITS-END -->
