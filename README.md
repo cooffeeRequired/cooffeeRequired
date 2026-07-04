@@ -65,7 +65,7 @@ No languages
 
 **Jsonic** 
 > Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
-`⭐ 1 • 📅 16. 08. 25` • `Other`
+`⭐ 1 • 📅 04. 07. 26` • `Kotlin`
 
 **skGoat** 
 > Addon that fills in missing syntax, and improves working with inventories
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (04. 07. 26 13:03)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ef6f9afa4d29070750e641d95cc46a59972649fa)
+
 **🔧 chore** (04. 07. 26 11:35)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/c98ef0a70b1be67eb866e0c535e8b2d080096d3d)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (04. 07. 26 04:28)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/a6a09a61d4fb2ef66d1865dbe66f7af109e0321a)
-
-**🔧 chore** (04. 07. 26 00:04)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/e6bfcbd0dc8ca821d27a45177a30aa5033d23c69)
 
 
 <!-- COMMITS-END -->
