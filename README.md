@@ -63,6 +63,10 @@ No languages
 > The Simple Skript Mailer using Kotlin JDK
 `⭐ 4 • 📅 10. 05. 25` • `Kotlin`
 
+**docker-dockafe** 
+> Interactive Docker TUI — Compose, containers, images, volumes & networks. Brewed for the terminal.
+`⭐ 1 • 📅 26. 07. 26` • `Go`
+
 **Jsonic** 
 > Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
 `⭐ 1 • 📅 04. 07. 26` • `Kotlin`
@@ -71,16 +75,16 @@ No languages
 > Addon that fills in missing syntax, and improves working with inventories
 `⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
 
-**cooffeeRequired** 
-> My page
-`📅 26. 07. 26` • `JavaScript`
-
 
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (26. 07. 26 18:58)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/94cad590137c35e94480ca0084bda3836a7e4f92)
+
 **🔧 chore** (26. 07. 26 17:54)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/79a14e590b2d46f61e4c4a93465298f4a6eeff96)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (26. 07. 26 14:56)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/a08088e1376409ff301e4028dc7860a9e600097e)
-
-**🔧 chore** (26. 07. 26 13:01)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/62c0b1752a60eac7dee913ca421749312b9bf1fe)
 
 
 <!-- COMMITS-END -->
