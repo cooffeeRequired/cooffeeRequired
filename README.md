@@ -71,9 +71,9 @@ No languages
 > Addon that fills in missing syntax, and improves working with inventories
 `⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
 
-**docker-dockafe** 
-> Interactive Docker TUI — Compose, containers, images, volumes & networks. Brewed for the terminal.
-`📅 26. 07. 26` • `Go`
+**cooffeeRequired** 
+> My page
+`📅 26. 07. 26` • `JavaScript`
 
 
 <!-- REPOS-END -->
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (26. 07. 26 14:56)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/a08088e1376409ff301e4028dc7860a9e600097e)
+
 **🔧 chore** (26. 07. 26 13:01)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/62c0b1752a60eac7dee913ca421749312b9bf1fe)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (26. 07. 26 08:10)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/e291dce1e335d139c44076a2e348000d46b8a961)
-
-**🔧 chore** (26. 07. 26 05:28)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f40f0441e46a8323e10d27aa8a0fa4e270d19d53)
 
 
 <!-- COMMITS-END -->
