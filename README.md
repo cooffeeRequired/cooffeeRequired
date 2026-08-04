@@ -61,7 +61,7 @@ No languages
 
 **docker-dockafe** 
 > Interactive Docker TUI — Compose, containers, images, volumes & networks. Brewed for the terminal.
-`⭐ 4 • 📅 27. 07. 26` • `Go`
+`⭐ 5 • 📅 27. 07. 26` • `Go`
 
 **SkriptMail** 
 > The Simple Skript Mailer using Kotlin JDK
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (04. 08. 26 18:22)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/bbd2bef4e57c8d25e0c53c7446826541cca2933d)
+
 **🔧 chore** (04. 08. 26 16:07)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/e0913677eb24362e49e377644e4d9fdb1f6733d3)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (04. 08. 26 09:33)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/721aa627dfc542fd57dd1b75275bc21c85d3c4e2)
-
-**🔧 chore** (04. 08. 26 06:25)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/8965b6a24dd35c0e8d3d42f7217b0c5d62861555)
 
 
 <!-- COMMITS-END -->
