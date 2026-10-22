@@ -55,13 +55,53 @@ No languages
 ## 📦 Top Repos
 
 <!-- REPOS-START -->
-*(GitHub API není dostupné)*
+**skJson** 
+> About Script Addon for using Json (Gson) in script
+`⭐ 23 • 🍴 5 • 📅 07. 07. 26` • `Java`
+
+**docker-dockafe** 
+> Interactive Docker TUI — Compose, containers, images, volumes & networks. Brewed for the terminal.
+`⭐ 5 • 📅 27. 07. 26` • `Go`
+
+**SkriptMail** 
+> The Simple Skript Mailer using Kotlin JDK
+`⭐ 4 • 📅 10. 05. 25` • `Kotlin`
+
+**Jsonic** 
+> Blazing fast JSON, HTTP, and WebSocket utilities for Skript.
+`⭐ 1 • 📅 04. 07. 26` • `Kotlin`
+
+**skGoat** 
+> Addon that fills in missing syntax, and improves working with inventories
+`⭐ 1 • 🍴 1 • 📅 06. 05. 25` • `Java`
+
+
 <!-- REPOS-END -->
 
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
-*(no recent commits found in profile repo)*
+**🔧 chore** (22. 10. 26 01:06)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/7ebbace64b73ca593e961644439bdcc930456dfb)
+
+**🔧 chore** (21. 10. 26 22:55)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/0c3ed792adffd0f670775900458ce33b0dbcbf97)
+
+**🔧 chore** (21. 10. 26 19:48)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/1b6ac255b7410c38b7063a876ba607e24a7951da)
+
+**🔧 chore** (21. 10. 26 15:45)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/820de42e8f5335baa793c95c5e5e00e3a51f56a6)
+
+**🔧 chore** (21. 10. 26 10:53)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/c6fd8c3c2da7b6658afe10655d1b5dcda424a9ec)
+
+
 <!-- COMMITS-END -->
 
 ---
