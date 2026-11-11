@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (11. 11. 26 02:25)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/28e6d0254500315edfaa0dfdc86ee05e81226673)
+
 **🔧 chore** (10. 11. 26 22:04)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/47914ade811f89eb068eb496d4360d197368318b)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (10. 11. 26 01:21)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/2ad5d11d93f47edf7ed6bd824fc1c8537e4cc1a9)
-
-**🔧 chore** (09. 11. 26 18:01)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f2f609f6ac19e46873d9d54c97ed2e251fecb7ff)
 
 
 <!-- COMMITS-END -->
