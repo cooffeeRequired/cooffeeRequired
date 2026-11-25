@@ -57,7 +57,7 @@ No languages
 <!-- REPOS-START -->
 **skJson** 
 > About Script Addon for using Json (Gson) in script
-`⭐ 23 • 🍴 5 • 📅 07. 07. 26` • `Java`
+`⭐ 24 • 🍴 5 • 📅 07. 07. 26` • `Java`
 
 **docker-dockafe** 
 > Interactive Docker TUI — Compose, containers, images, volumes & networks. Brewed for the terminal.
@@ -81,6 +81,10 @@ No languages
 ## 📝 Recent Commits (profile repo)
 
 <!-- COMMITS-START -->
+**🔧 chore** (24. 11. 26 21:45)
+> chore: auto-update README (WakaTime + GitHub)
+by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/033ddd1562ac1ed54a9a66eaeb11b888991c79b2)
+
 **🔧 chore** (24. 11. 26 11:51)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/20d0b2a21209e010ddc8b92397eaa391dc7f48b6)
@@ -96,10 +100,6 @@ by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/
 **🔧 chore** (23. 11. 26 03:34)
 > chore: auto-update README (WakaTime + GitHub)
 by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/ad026948aac6bfae02a4b91f2d339fb435464aff)
-
-**🔧 chore** (22. 11. 26 23:00)
-> chore: auto-update README (WakaTime + GitHub)
-by **github-actions[bot]** • [view commit](https://github.com/cooffeeRequired/cooffeeRequired/commit/f53b02436472607c224f065927ecb3048eb14f0e)
 
 
 <!-- COMMITS-END -->
